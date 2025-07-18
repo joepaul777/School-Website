@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kadayiruppu Government Higher Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1B3C53;
+      --secondary: #456882;
+      --accent: #D2C1B6;
+      --light-bg: #F9F3EF;
+      --white: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--primary);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("kada.jpg") no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 20px 40px;
+      color: var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--accent);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--white);
+    }
+
+    .hero-about {
+      padding: 100px 20px 80px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-about h2 {
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .hero-about p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 15px auto;
+      color: var(--secondary);
+    }
+
+    #typing-text {
+      font-weight: 500;
+      margin-top: 10px;
+      color: var(--primary);
+    }
+
+    .info-section {
+      background-color: var(--white);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid var(--accent);
+    }
+
+    .info-box {
+      flex: 1 1 300px;
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .info-box h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      margin: 5px 0;
+      color: var(--secondary);
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    .results-section {
+      background-color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 2px solid var(--accent);
+    }
+
+    .results-section h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .results-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .result-card {
+      background-color: var(--light-bg);
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .result-card h3 {
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .result-card p,
+    .result-card ul {
+      font-size: 15px;
+      color: var(--primary);
+    }
+
+    .result-card ul {
+      padding-left: 18px;
+      list-style-type: disc;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: var(--accent);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>KADAYIRUPPU GHSS</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Faculty</a>
+      <a href="#">Clubs</a>
+      <a href="#">Study Material</a>
+      <a href="#">PTA</a>
+    </nav>
+  </header>
+
+  <section class="hero-about" id="hero">
+    <h2>Welcome to Kadayiruppu GHSS</h2>
+    <p id="typing-text">|</p>
+    <p>Kadayiruppu GHSS is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
+  </section>
+
+  <section class="results-section" id="results">
+    <h2>🎓 Results & Achievements</h2>
+    <div class="results-content">
+      <div class="result-card">
+        <h3>SSLC 2024 - 100% Pass</h3>
+        <p>All students who appeared for the SSLC exams in 2024 passed successfully, maintaining our school’s tradition of academic excellence.</p>
+      </div>
+      <div class="result-card">
+        <h3>Top Performers</h3>
+        <ul>
+          <li><strong>Anjali R:</strong> 98.6%</li>
+          <li><strong>Ramesh K:</strong> 97.4%</li>
+          <li><strong>Farzana M:</strong> 96.9%</li>
+        </ul>
+      </div>
+      <div class="result-card">
+        <h3>Higher Studies & Placement</h3>
+        <p>Our alumni have joined prestigious institutions like IITs, NITs, and Kerala University. Several are now in top government and private sectors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-box">
+      <h4>🕒 School Hours</h4>
+      <p>Monday - Friday: 8:30 AM – 3:30 PM</p>
+      <p>Saturday: 8:30 AM – 12:30 PM</p>
+      <p>Sunday: Closed</p>
+    </div>
+    <div class="info-box">
+      <h4>📞 Contact Us</h4>
+      <p>Phone: +91 94477 12345</p>
+      <p>Email: kadayiruppughss@kerala.gov.in</p>
+      <p>Office Hours: 9 AM – 4 PM</p>
+    </div>
+    <div class="info-box">
+      <h4>📍 Location</h4>
+      <iframe src="https://maps.google.com/maps?q=kadayiruppu%20ghss&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Kadayiruppu GHSS. All rights reserved.
+  </footer>
+
+  <script>
+    // Fade-in effect
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.hero-about').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Typing animation
+    const text = "Empowering the next generation through quality education and values.";
+    const target = document.getElementById('typing-text');
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        target.textContent = text.substring(0, i + 1) + '|';
+        i++;
+        setTimeout(typeWriter, 40);
+      } else {
+        target.textContent = text;
+      }
+    }
+
+    window.onload = () => {
+      typeWriter();
+    };
+  </script>
+
+</body>
+</html>
