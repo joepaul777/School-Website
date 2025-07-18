@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kadayiruppu GHSS | Clubs</title>
+  <style>
+    :root {
+      --primary: #1B3C53;
+      --accent: #456882;
+      --bg-light: #F9F3EF;
+      --soft-sand: #D2C1B6;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--primary);
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: var(--accent);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--soft-sand);
+    }
+
+    .clubs-section {
+      padding: 50px 20px;
+      background-color: var(--bg-light);
+      text-align: center;
+    }
+
+    .clubs-section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+    }
+
+    .club-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .club-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .club-card {
+      background-color: #ffffff;
+      border-left: 5px solid var(--primary);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .club-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(27, 60, 83, 0.2);
+    }
+
+    .club-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background-color: var(--bg-light);
+      padding: 5px;
+    }
+
+    .club-card h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .club-card p {
+      color: var(--accent);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    .what {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      z-index: 1000;
+    }
+
+    .what img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .what img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KADAYIRUPPU GHSS</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="faculty.html">Faculty</a>
+      <a href="#">Clubs</a>
+      <a href="#">Study Material</a>
+      
+    </nav>
+  </header>
+  <section class="clubs-section" id="clubs">
+    <h2>🏫 Our Clubs</h2>
+    <div class="club-container">
+      <div class="club-card">
+        <img src="images.jpg" alt="NSS Logo">
+        <h3>NSS</h3>
+        <p>Encouraging students to participate in community service and nation-building activities.</p>
+      </div>
+      <div class="club-card">
+        <img src="jrc.png" alt="JRC Logo">
+        <h3>JRC</h3>
+        <p>Promoting humanitarian values, first aid awareness, and service to society among students.</p>
+      </div>
+      <div class="club-card">
+        <img src="spc.jpg" alt="SPC Logo">
+        <h3>SPC</h3>
+        <p>Instilling discipline, leadership, and responsibility through collaboration with the Kerala Police.</p>
+      </div>
+      <div class="club-card">
+        <img src="littl.jpg" alt="Little Kites Logo">
+        <h3>Little Kites</h3>
+        <p>Empowering students with IT skills and digital creativity under the KITE initiative.</p>
+      </div>
+    </div>
+  </section>
+
+  <a class="what" href="https://wa.me/9388889300" target="_blank">
+    <img src="whatsapp logo.png" alt="WhatsApp" />
+  </a>
+  <footer>
+    &copy; 2025 Kadayiruppu GHSS. All rights reserved.
+  </footer>
+</body>
+</html>
