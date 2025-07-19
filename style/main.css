@@ -119,7 +119,10 @@
       margin: 5px 0;
       color: var(--secondary);
     }
-
+    .home{
+      text-decoration: none;
+      color: var(--accent);
+    }
     iframe {
       width: 100%;
       height: 200px;
