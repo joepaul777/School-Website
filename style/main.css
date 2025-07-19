@@ -352,3 +352,128 @@
       font-size: 0.95rem;
       line-height: 1.5;
     }
+
+    /* === Clubs Section ...................................................................................... === */
+.clubs-section {
+  padding: 50px 20px;
+  background-color: var(--bg-light);
+  text-align: center;
+}
+
+.clubs-section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.club-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .club-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.club-card {
+  background-color: #FFFFFF;
+  border-left: 5px solid #1B3C53;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.club-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(27, 60, 83, 0.2);
+}
+
+.club-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background-color: var(--bg-light);
+  padding: 5px;
+}
+
+.club-card h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.club-card p {
+  color: var(--accent);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.club-panel {
+  display: flex;
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  gap: 40px;
+  align-items: flex-start;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.club-left {
+  flex: 1;
+  color: #1B3C53;
+  min-width: 300px;
+}
+
+.club-left h2 {
+  font-size: 2.5rem;
+  color: #1B3C53;
+  margin-bottom: 10px;
+}
+
+.club-left h4 {
+  color: #456882;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.club-left p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.club-left ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.club-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+}
+
+.club-right img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ........................................................................................................... */
