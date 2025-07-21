@@ -38,7 +38,7 @@
       navbar.style.top = "-100px";
     } else {
       // Scrolling up
-      navbar.style.top = "0";
+      navbar.style.top = "0"; 
     }
     lastScrollY = window.scrollY;
   });
