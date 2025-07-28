@@ -39,7 +39,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 95%; /* full width without overflow */
+      width: 95%; 
       z-index: 100;
       display: flex;
       justify-content: space-between;
@@ -81,7 +81,7 @@
     }
 
     .hero-about {
-      padding: 100px 20px 80px;
+      padding: 200px 20px 210px;
       text-align: center;
       opacity: 1;
       transform: translateY(20px);
