@@ -83,7 +83,7 @@
     .hero-about {
       padding: 100px 20px 80px;
       text-align: center;
-      opacity: 0;
+      opacity: 1;
       transform: translateY(20px);
       transition: all 1s ease-out;
       
