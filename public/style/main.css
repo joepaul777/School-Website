@@ -39,7 +39,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 95%; /* full width without overflow */
+      width: 95%; 
       z-index: 100;
       display: flex;
       justify-content: space-between;
@@ -81,9 +81,9 @@
     }
 
     .hero-about {
-      padding: 100px 20px 80px;
+      padding: 200px 20px 210px;
       text-align: center;
-      opacity: 0;
+      opacity: 1;
       transform: translateY(20px);
       transition: all 1s ease-out;
       
@@ -153,6 +153,61 @@
       border: 0;
       border-radius: 8px;
     }
+    .courses-section {
+  padding: 60px 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.courses-section h2 {
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.course-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 25px 20px;
+  width: 280px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  text-align: left;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.course-card h3 {
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.course-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.course-card ul li {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
 
     .results-section {
       background-color: var(--white);

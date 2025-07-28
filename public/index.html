@@ -9,6 +9,7 @@
 </head>
 <body>
   <header id="navbar">
+    
     <a href="index.html" class="home" id="sel"><h1>GHSS KADAYIRUPPU</h1></a>
     <nav>
       <a href="faculty.html">Faculty</a>
@@ -36,9 +37,9 @@
   </header>
 
   <section class="hero-about" id="hero">
-    <h2>Welcome to Kadayiruppu GHSS</h2>
-    <p id="typing-text">|</p>
-    <p>Kadayiruppu GHSS is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
+    <h2>Welcome to GHSS Kadayiruppu</h2>
+    <p id="typing-text">| </p>
+    <p>GHSS Kadayiruppu is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
   </section>
 
   <section class="results-section" id="results">
@@ -62,54 +63,41 @@
       </div>
     </div>
   </section>
-<!-- Streams Offered Section -->
-<section class="streams-content">
-  <h2>📚 Streams Offered</h2>
-
-    
-    <div class="cardv">
-      <h3>Bio-Maths</h3>
+<section class="courses-section">
+  <h2>Courses Offered</h2>
+  <div class="course-container">
+    <div class="course-card">
+      <h3>Science Stream</h3>
       <ul>
-        <li>🌿 Biology</li>
-        <li>🧮 Mathematics</li>
-        <li>🧪 Physics</li>
-        <li>⚗️ Chemistry</li>
-        <li>🧠 English</li>
-        <li>📘 Second Language</li>
+        <li>Physics</li>
+        <li>Chemistry</li>
+        <li>Biology</li>
+        <li>Mathematics</li>
+        <li>English</li>
       </ul>
-      <p>This stream is ideal for careers in medicine, engineering, and biotechnology.</p>
     </div>
-    
-    <div class="cardv">
+    <div class="course-card">
+      <h3>Commerce Stream</h3>
+      <ul>
+        <li>Accountancy</li>
+        <li>Business Studies</li>
+        <li>Economics</li>
+        <li>Mathematics</li>
+        <li>English</li>
+      </ul>
+    </div>
+    <div class="course-card">
       <h3>Computer Science</h3>
       <ul>
-        <li>💻 Computer Science</li>
-        <li>🧮 Mathematics</li>
-        <li>🧪 Physics</li>
-        <li>⚗️ Chemistry</li>
-        <li>🧠 English</li>
-        <li>📘 Second Language</li>
+        <li>Physics</li>
+        <li>Chemistry</li>
+        <li>Computer Science</li>
+        <li>Mathematics</li>
+        <li>English</li>
       </ul>
-      <p>Great for software, AI, data science, and IT fields.</p>
     </div>
-    
-    <div class="cardv">
-      <h3>Commerce</h3>
-      <ul>
-        <li>📊 Accountancy</li>
-        <li>💼 Business Studies</li>
-        <li>📉 Economics</li>
-        <li>📐 Mathematics / IP</li>
-        <li>🧠 English</li>
-        <li>📘 Second Language</li>
-      </ul>
-      <p>Pathway to careers in business, finance, management, and law.</p>
-    </div>
-
-  
+  </div>
 </section>
-
-
 
   <section class="info-section">
     <div class="info-box">
@@ -129,7 +117,7 @@
       <iframe src="https://maps.google.com/maps?q=kadayiruppu%20ghss&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
     </div>
   </section>
-  <a class="what" href="https://wa.me/8586868643" target="_blank" >
+  <a class="what" href="https://wa.me/8547413940" target="_blank" >
   <img src="images/WhatsApp_icon.webp" 
        class="what" 
        onmouseover="this.style.transform='scale(1.2)'" 
@@ -139,8 +127,41 @@
   
 
   <footer>
-    &copy; 2025 Kadayiruppu GHSS. All rights reserved.
+    &copy; 2025 GHSS.Kadayiruppu All rights reserved.
   </footer>
   <script src="../script/script.js"></script>
+   <script>
+    // Section fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.hero, .about').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Typing effect
+    const text = "Empowering the next generation through quality education and values.";
+    const target = document.getElementById('typing-text');
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        target.textContent = text.substring(0, i + 1) + '|';
+        i++;
+        setTimeout(typeWriter, 40);
+      } else {
+        target.textContent = text;
+      }
+    }
+
+    window.onload = () => {
+      typeWriter();
+    };
+  </script>
 </body>
 </html>
