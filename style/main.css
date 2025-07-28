@@ -653,7 +653,7 @@
 .section-title {
   color: #2c3e50;
   margin: 40px 0 20px 10px;
-  font-size: 22px;
+  font-size: px;
 }
 .container {
   display: flex;
@@ -719,4 +719,8 @@
   font-size: 14px;
   text-align: justify;
   color: #444;
+}
+.page-title{
+  font-size: 35px;
+  color: var(--secondary) ;
 }
