@@ -5,7 +5,16 @@
       --light-bg: #F9F3EF;
       --white: #FFFFFF;
     }
-    
+  .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column; 
+  }
+
+  /* Ensure main content grows and pushes footer down */
+  main {
+    flex: 1;
+  }
     #sel{
       color: var(--white);
     }
@@ -46,7 +55,7 @@
       align-items: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: top 0.3s ease;
-      overflow-x: auto; /* allow scrolling if content overflows */
+      overflow-x: auto; 
       z-index: 999;
     
     }
@@ -81,7 +90,7 @@
     }
 
     .hero-about {
-      padding: 200px 20px 210px;
+      padding: 150px 20px 260px;
       text-align: center;
       opacity: 1;
       transform: translateY(20px);
@@ -323,7 +332,6 @@
       text-align: center;
       font-size: 14px;
       padding: 15px 10px;
-      flex:1;
     }
     .faculty-container {
       display: flex;
