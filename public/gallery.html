@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facility - Kadayiruppu GHSS</title>
+  <link rel="stylesheet" href="style/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="navbar">
+    <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
+    <nav>
+      <a href="faculty.html">Faculty</a>
+      <a href="club.html">Clubs</a>
+            <div class="dropdown"  tabindex="0">
+      <button class="dropbtn">Material</button>
+      <div class="dropdown-content">
+       
+        <a href="class5.html">Class 5</a>
+        <a href="class6.html">Class 6</a>
+        <a href="class7.html">Class 7</a>
+        <a href="class8.html">Class 8</a>
+        <a href="class9.html">Class 9</a>
+        <a href="class10.html">Class 10</a>
+        <a href="class11.html">Class 11</a>
+        <a href="class12.html">Class 12</a>
+      </div>
+    </div>
+    <a href="gallery.html" id="sel">Gallery</a>
+      <a href="report.html" >Report</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+<section class="gallery-collage">
+  <h2>Our Gallery</h2>
+  <div class="gallery-wrapper">
+    <img src="https://images.jdmagicbox.com/v2/comp/ernakulam/j5/0484px484.x484.221122214122.z8j5/catalogue/g-h-s-s-kadayiruppu-kadayirippu-ernakulam-senior-secondary-schools-wXtuDkwG1n.jpg" class="scattered-photo" style="top: 20px; left: 30px;" onclick="openLightbox(this.src)">
+    <img src="https://images.jdmagicbox.com/v2/comp/ernakulam/j5/0484px484.x484.221122214122.z8j5/catalogue/g-h-s-s-kadayiruppu-kadayirippu-ernakulam-senior-secondary-schools-aMFcRbfH0b.jpg" class="scattered-photo" style="top: 200px; left: 100px;" onclick="openLightbox(this.src)">
+    <img src="https://images.jdmagicbox.com/v2/comp/ernakulam/j5/0484px484.x484.221122214122.z8j5/catalogue/g-h-s-s-kadayiruppu-kadayirippu-ernakulam-senior-secondary-schools-CjcAaHiXuv.jpg" class="scattered-photo" style="top: 350px; left: 300px;" onclick="openLightbox(this.src)">
+    <img src="https://images.jdmagicbox.com/v2/comp/ernakulam/j5/0484px484.x484.221122214122.z8j5/catalogue/g-h-s-s-kadayiruppu-kadayirippu-ernakulam-senior-secondary-schools-qF3bdi1rBg.jpg" class="scattered-photo" style="top: 120px; left: 500px;" onclick="openLightbox(this.src)">
+    <img src="https://images.jdmagicbox.com/v2/comp/ernakulam/j5/0484px484.x484.221122214122.z8j5/catalogue/g-h-s-s-kadayiruppu-kadayirippu-ernakulam-senior-secondary-schools-5i9x6ISFY9.jpg" class="scattered-photo" style="top: 420px; left: 700px;" onclick="openLightbox(this.src)">
+    <!-- Add more scattered images with different top/left -->
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+ <footer>
+    &copy; 2025 GHSS Kadayiruppu All rights reserved.
+  </footer>
+
+</body>
+</html>
