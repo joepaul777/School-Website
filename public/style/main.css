@@ -555,7 +555,11 @@
   border-radius: 12px;
   object-fit: cover;
 }
-
+.st{
+  text-decoration: none;
+  color: var(--primary);
+  font-family: 'Poppins',sans-serif;
+}
 
 
 .dropdown {
