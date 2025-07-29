@@ -7,7 +7,7 @@
     }
     
     #sel{
-      color: var(--secondary);
+      color: var(--white);
     }
     body {
       margin: 0;
@@ -766,3 +766,57 @@
    margin-bottom: 40px;
 
  }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--white);
+    }
+
+    .gallery-wrapper {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .scattered-photo {
+      position: absolute;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .scattered-photo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--overlay-bg);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px black;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
