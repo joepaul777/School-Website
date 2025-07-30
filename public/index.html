@@ -6,19 +6,13 @@
   <title>Kadayiruppu Government Higher Secondary School</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/main.css" />
-  <div id="google_translate_element">hi</div>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-    </script>
 </head>
 <body>
   <header id="navbar">
     
     <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
     <nav>
+      <a href="index.html" id="sel">Home</a>
       <a href="faculty.html">Faculty</a>
       <a href="club.html">Clubs</a>
       <div class="dropdown"  tabindex="0">
@@ -144,38 +138,6 @@
     &copy; 2025 GHSS Kadayiruppu All rights reserved.
   </footer>
   <script src="../script/script.js"></script>
-   <script>
-    // Section fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.hero, .about').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Typing effect
-    const text = "Empowering the next generation through quality education and values.";
-    const target = document.getElementById('typing-text');
-    let i = 0;
-
-    function typeWriter() {
-      if (i < text.length) {
-        target.textContent = text.substring(0, i + 1) + '|';
-        i++;
-        setTimeout(typeWriter, 40);
-      } else {
-        target.textContent = text;
-      }
-    }
-
-    window.onload = () => {
-      typeWriter();
-    };
-  </script>
+  <script src="script/main.js"></script>
 </body>
 </html>
