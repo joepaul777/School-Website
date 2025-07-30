@@ -581,7 +581,6 @@
   border-radius: 12px;
   object-fit: cover;
 }
-<<<<<<< HEAD
 .st{
   text-decoration: underline  ;
   color: var(--primary);
@@ -590,7 +589,6 @@
 }
 
 
-=======
 #translateButton{
  position: fixed;
   bottom: 110px;
@@ -605,7 +603,6 @@
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
->>>>>>> d4bcf0d5748fb30978c9cb65e7bef090aebf908e
 .dropdown {
   position: relative;
   display: inline-block;
@@ -973,7 +970,6 @@
        color: #1B3C55;
        margin-bottom: 40px;
      }
-<<<<<<< HEAD
   
  .achievements-section {
   background: #fefefe;
@@ -1014,7 +1010,6 @@
 
 
 
-=======
 #reportbutton{
   display: inline-block;
   background-color: #1B3C53;
@@ -1030,4 +1025,3 @@
 #reportbutton :hover {
   background-color: #2e5978;
 }
->>>>>>> d4bcf0d5748fb30978c9cb65e7bef090aebf908e
