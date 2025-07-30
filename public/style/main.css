@@ -928,54 +928,6 @@
        justify-content: center;
        background-color: white;
      }
-  
-     #beautiful-button {
-       position: relative;
-       display: inline-block;
-       background: linear-gradient(to bottom, #1B3C53, #1B3C55);
-       color: white;
-       font-family: "Segoe UI", sans-serif;
-       font-weight: bold;
-       font-size: 18px;
-       border: none;
-       border-radius: 30px;
-       padding: 14px 28px;
-       cursor: pointer;
-       animation: button-shimmer 2s infinite;
-       transition: all 0.3s ease-in-out;
-       margin-left: 120px;
-     }
-  
-     #beautiful-button:hover {
-       background: linear-gradient(to bottom, #2c2f63, --light-bg);
-       animation: button-particles 1s ease-in-out infinite;
-       transform: translateY(-2px);
-     }
-  
-     #beautiful-button:active {
-       transform: scale(0.95);
-     }
-  
-     @keyframes button-shimmer {
-       0% {
-         background-position: left top;
-       }
-  
-       100% {
-         background-position: right bottom;
-       }
-     }
-  
-     @keyframes button-particles {
-       0% {
-         background-position: left top;
-       }
-  
-       100% {
-         background-position: right bottom;
-       }
-     }
-  
      .report-section {
        background-color: white;
        padding: 60px 20px;
@@ -992,3 +944,18 @@
        margin-bottom: 40px;
   
      }
+#reportbutton{
+  display: inline-block;
+  background-color: #1B3C53;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-left: 120px;
+}
+
+#reportbutton :hover {
+  background-color: #2e5978;
+}
