@@ -817,60 +817,68 @@
   color: var(--accent);
 }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--white);
-    }
+.gallery-scatter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
 
-    .gallery-wrapper {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
+.scattered-photo {
+  width: 250px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-    .scattered-photo {
-      position: absolute;
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+.scattered-photo:hover {
+  transform: scale(1.05) rotate(1deg);
+}
 
-    .scattered-photo:hover {
-      transform: scale(1.05);
-    }
+/* Lightbox styling */
+#lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-    /* Lightbox Modal */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--overlay-bg);
-      justify-content: center;
-      align-items: center;
-    }
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
 
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 12px;
-      box-shadow: 0 0 20px black;
-    }
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  z-index: 10000;
+}
 
-    .lightbox .close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-    }
+.arrow.left {
+  left: 5%;
+}
+
+.arrow.right {
+  right: 5%;
+}
+
     .reportcard {
     background-color: #F9F3EF;
        padding: 20px;
