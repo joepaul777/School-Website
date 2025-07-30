@@ -6,8 +6,11 @@
   <title>Kadayiruppu Government Higher Secondary School</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/main.css" />
+
+
 </head>
 <body>
+  <div id="google_translate_element" style="display:none;"></div>
   <header id="navbar">
     
     <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
@@ -40,7 +43,7 @@
   <section class="hero-about" id="hero">
     <h2>Welcome to GHSS Kadayiruppu</h2>
     <p id="typing-text">| </p>
-    <p>GHSS Kadayiruppu is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
+    <p>GHSS Kadayiruppu provides a friendly and supportive space where students learn, grow, and build confidence. We help every child develop good values, strong skills, and a love for learning – both in school and beyond.</p>
   </section>
 
   <section class="results-section" id="results">
@@ -103,28 +106,38 @@
   <section class="info-section">
     <div class="info-box">
       <h4>🕒 School Hours</h4>
-          <p>Monday - Friday: 8:30 AM – 3:30 PM</p>
-          <p>Saturday: 8:30 AM – 12:30 PM</p>
-          <p>Sunday: Closed</p>
-          <p>Office Hours: 9 AM – 4 PM</p>
+      <p>Monday - Friday: 8:30 AM – 3:30 PM</p>
+      <p>Saturday: 8:30 AM – 12:30 PM</p>
+      <p>Sunday: Closed</p>
     </div>
     <div class="info-box">
-      <center>
-      <h4>CONTACT US ON :</h4>
-            <br>
-            <a href="mailto:ghsskadayiruppu@gmail.com" style="margin: 15px;"><img src="images/gmail.png" style="width: 40px; height: auto;"></a>
-            <a href="https://m.facebook.com/Ghsskadayirippu1/" style="margin: 15px;"><img src="images/facebook.png" style="width: 40px; height: auto;"></a>
-            <a href="https://www.youtube.com/@ghsskkadayiruppu194/featured" style="margin: 15px;"><img src="images/ar.png" style="width: 40px; height: auto;"></a>
-            <a href="https://wa.me/8586868643" style="margin: 15px;"target="_blank"><img src="images/WhatsApp_icon.webp" alt="WhatsApp_icon" style="width: 40px;height: auto;"></a>
-            <br><br>
-            <a href="tel:+918547413940" style="color:var(--primary);text-decoration: none ;">Phone number: +91 8547413940</a>
-      </center>
+      <h4>📞 Contact Us</h4>
+      <p>Phone: +91 94477 12345</p>
+      <p>Email: kadayiruppughss@kerala.gov.in</p>
+      <p>Office Hours: 9 AM – 4 PM</p>
     </div>
     <div class="info-box">
       <h4>📍 Location</h4>
       <iframe src="https://maps.google.com/maps?q=kadayiruppu%20ghss&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
     </div>
   </section>
+  <button id="translateButton" style="
+  position: fixed;
+  bottom: 110px;
+  left: 30px;
+  z-index: 9999;
+  background-color: #1B3C53;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+">
+  മലയാളം
+</button>
+
   <a class="what" href="https://wa.me/8547413940" target="_blank" >
   <img src="images/WhatsApp_icon.webp" 
        class="what" 
@@ -137,7 +150,19 @@
   <footer>
     &copy; 2025 GHSS Kadayiruppu All rights reserved.
   </footer>
-  <script src="../script/script.js"></script>
-  <script src="script/main.js"></script>
+
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ml',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="script/main.js"></script>
 </body>
 </html>

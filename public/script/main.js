@@ -20,7 +20,7 @@
       if (i < text.length) {
         target.textContent = text.substring(0, i + 1) + '|';
         i++;
-        setTimeout(typeWriter, 40);
+        setTimeout(typeWriter, 30);
       } else {
         target.textContent = text;
       }
@@ -41,4 +41,36 @@
       navbar.style.top = "0"; 
     }
     lastScrollY = window.scrollY;
+  });
+
+  /*------Google_Translate------*/
+   function changeToMalayalam() {
+    const lang = 'ml'; // Malayalam
+
+    // Set the cookie that Google Translate reads
+    document.cookie = `googtrans=/en/${lang};path=/`;
+
+    // Reload the page so the cookie takes effect
+    location.reload();
+  }
+  document.getElementById('translateButton').addEventListener('click', function () {
+    const iframe = document.querySelector('iframe.goog-te-menu-frame');
+    if (iframe) {
+      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      const malayalamOption = innerDoc.querySelector("span[textContent='Malayalam']");
+      
+      if (malayalamOption) {
+        malayalamOption.click();
+      } else {
+        // fallback: simulate selecting Malayalam via menu
+        const options = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+        options.forEach(function (option) {
+          if (option.innerText === 'Malayalam') {
+            option.click();
+          }
+        });
+      }
+    } else {
+      alert("Please wait while the translation loads...");
+    }
   });
