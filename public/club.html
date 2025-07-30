@@ -11,7 +11,6 @@
   <header id="navbar">
     <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
     <nav>
-      <a href="index.html">Home</a>
       <a href="faculty.html">Faculty</a>
       <a href="club.html" id="sel">Clubs</a>
             <div class="dropdown"  tabindex="0">
@@ -70,7 +69,31 @@
   </div>
 </section>
 
-    <footer>&copy;2025 GHSS Kadayiruppu All rights reserved.</footer>
-<script src="script/main.js"></script>
+  <footer>&copy;2025 GHSS Kadayiruppu All rights reserved.</footer>
+
 </body>
 </html>
+
+
+<script>
+  const cards = document.querySelectorAll('.club-card');
+
+  cards.forEach((card, index) => {
+    // Add initial direction class
+    if (index % 2 === 0) {
+      card.classList.add('slide-in-left');
+    }
+
+    // Observer to trigger animation when card enters viewport
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          card.classList.add('visible');
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(card);
+  });
+</script>
