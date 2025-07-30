@@ -6,19 +6,16 @@
   <title>Kadayiruppu Government Higher Secondary School</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/main.css" />
-  <div id="google_translate_element">hi</div>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-    </script>
+
+
 </head>
 <body>
+  <div id="google_translate_element" style="display:none;"></div>
   <header id="navbar">
     
     <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
     <nav>
+      <a href="index.html" id="sel">Home</a>
       <a href="faculty.html">Faculty</a>
       <a href="club.html">Clubs</a>
       <div class="dropdown"  tabindex="0">
@@ -46,7 +43,7 @@
   <section class="hero-about" id="hero">
     <h2>Welcome to GHSS Kadayiruppu</h2>
     <p id="typing-text">| </p>
-    <p>GHSS Kadayiruppu is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
+    <p>GHSS Kadayiruppu provides a friendly and supportive space where students learn, grow, and build confidence. We help every child develop good values, strong skills, and a love for learning – both in school and beyond.</p>
   </section>
 <section class="results-section" id="results">
   <h2>🎓 Results & Achievements</h2>
@@ -170,6 +167,8 @@
       <iframe src="https://maps.google.com/maps?q=kadayiruppu%20ghss&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
     </div>
   </section>
+  <button id="translateButton">മലയാളം</button>
+
   <a class="what" href="https://wa.me/8547413940" target="_blank" >
   <img src="images/WhatsApp_icon.webp" 
        class="what" 
@@ -182,6 +181,7 @@
   <footer>
     &copy; 2025 GHSS Kadayiruppu All rights reserved.
   </footer>
+<<<<<<< HEAD
   <script src="../script/script.js"></script>
 
 <script>
@@ -223,5 +223,21 @@ targetSections.forEach(section => {
 });
 
 </script>
+=======
+
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ml',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="script/main.js"></script>
+>>>>>>> d4bcf0d5748fb30978c9cb65e7bef090aebf908e
 </body>
 </html>
