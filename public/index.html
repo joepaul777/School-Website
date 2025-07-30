@@ -22,7 +22,7 @@
       <a href="faculty.html">Faculty</a>
       <a href="club.html">Clubs</a>
       <div class="dropdown"  tabindex="0">
-      <button class="dropbtn">Materials</button>
+      <button class="dropbtn">Materials </button>
       <div class="dropdown-content">
     
         <a href="class5.html">Class 5</a>
@@ -48,28 +48,41 @@
     <p id="typing-text">| </p>
     <p>GHSS Kadayiruppu is committed to fostering a nurturing, inclusive environment where students grow intellectually, socially, and emotionally. Our curriculum promotes curiosity, responsibility, and holistic development.</p>
   </section>
+<section class="results-section" id="results">
+  <h2>🎓 Results & Achievements</h2>
 
-  <section class="results-section" id="results">
-    <h2>🎓 Results & Achievements</h2>
-    <div class="results-content">
-      <div class="result-card">
-        <h3>SSLC 2024 - 100% Pass</h3>
-        <p>All students who appeared for the SSLC exams in 2024 passed successfully, maintaining our school’s tradition of academic excellence.</p>
-      </div>
-      <div class="result-card">
-        <h3>Top Performers</h3>
-        <ul>
-          <li><strong>Vaibhav</strong> 100%</li>
-          <li><strong>Joe Paul</strong> Thottu</li>
-          <li><strong>Mohit</strong> supply</li>
-        </ul>
-      </div>
-      <div class="result-card">
-        <h3>Higher Studies & Placement</h3>
-        <p>Our alumni have joined prestigious institutions like IITs, NITs, and Kerala University. Several are now in top government and private sectors.</p>
-      </div>
+  <div class="results-content">
+    <div class="result-card">
+      <h3>Class 12 – Public Examination 2024</h3>
+     <p>100% Pass Percentage</p>
+
+      <p><strong> Top 3 Performers:</strong></p>
+      <ol>
+        <li><strong>Basil peter(Computer Science)</strong> – 98.5%</li>
+        <li><strong>Ameena Fathima V.N <br> (Bio-Maths) <br> <center>&</center> <br>Ameera K.J(Commerce)</strong> – 98.08%</li>
+        <!-- <li><strong>Ameera K.J</strong> – 99.5%</li> -->
+      </ol>
+      <section class="results-section">
+  
+</section>
+
     </div>
-  </section>
+ <div class="result-card">
+      <h3>Class 12 – Public Examination 2025</h3>
+      <p> 100% Pass</p>
+      <p><strong> Top 3 Performers:</strong></p>
+      <ol>
+        <li><strong>Aadila Hyder(Bio-maths) <br> <center>&</center> <br> Nazrin Muneer(Bio-maths)</strong> – 98.17%</li>
+        <li><strong>Ciya Joby(Bio-Maths)</strong> – 98.00%</li>
+        <li><strong>Vignesh Vinoy(Computer Science) <br> <center>&</center> <br> Devananda Rajesh(Computer Science)</strong> – 97.92%</li>
+      </ol>
+    </div>
+   
+
+   
+
+  </div>
+</section>
 <section class="courses-section">
   <h2>Courses Offered</h2>
   <div class="course-container">
@@ -111,6 +124,33 @@
     </div>
   </div>
 </section>
+<section class="achievements-section">
+  <h2>Our Achievements</h2>
+  <div class="counter-container">
+    <div class="counter-box">
+      <P class="counter" data-target="100%">0</P>
+      <span>Pass Percentage</span>
+    </div>
+   
+    <div class="counter-box">
+      <p class="counter" data-target="25">0</p>
+      <span>Full A+ in Class 12</span>
+    </div>
+    <div class="counter-box">
+      <p class="counter" data-target="35">0</p>
+      <span>Full A+ in Class 10</span>
+    </div>
+    <div class="counter-box">
+      <p class="counter" data-target="20">0</p>
+      <span>Experienced Faculties (10+ yrs)</span>
+    </div>
+     <div class="counter-box">
+      <p class="counter" data-target="76">0</p>
+      <span>Years of Experience</span>
+    </div>
+  </div>
+</section>
+
 
   <section class="info-section">
     <div class="info-box">
@@ -143,38 +183,45 @@
     &copy; 2025 GHSS Kadayiruppu All rights reserved.
   </footer>
   <script src="../script/script.js"></script>
-   <script>
-    // Section fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  function startCounters() {
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      let current = 0;
+      const increment = Math.max(1, Math.ceil(target / 400)); // slower speed (was /200)
+
+      function updateCounter() {
+        current += increment;
+        if (current < target) {
+          counter.innerText = current;
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.innerText = target;
         }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.hero, .about').forEach(section => {
-      observer.observe(section);
-    });
-
-    // Typing effect
-    const text = "Empowering the next generation through quality education and values.";
-    const target = document.getElementById('typing-text');
-    let i = 0;
-
-    function typeWriter() {
-      if (i < text.length) {
-        target.textContent = text.substring(0, i + 1) + '|';
-        i++;
-        setTimeout(typeWriter, 40);
-      } else {
-        target.textContent = text;
       }
-    }
 
-    window.onload = () => {
-      typeWriter();
-    };
-  </script>
+      updateCounter();
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        startCounters();
+      }
+    });
+  }, { threshold: 0.3 });
+
+ const targetSections = document.querySelectorAll('.results-section, .achievements-section');
+targetSections.forEach(section => {
+  observer.observe(section);
+});
+
+</script>
 </body>
 </html>
