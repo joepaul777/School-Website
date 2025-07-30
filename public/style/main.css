@@ -576,9 +576,20 @@
   border-radius: 12px;
   object-fit: cover;
 }
-
-
-
+#translateButton{
+ position: fixed;
+  bottom: 110px;
+  left: 30px;
+  z-index: 9999;
+  background-color: #1B3C53;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 .dropdown {
   position: relative;
   display: inline-block;
