@@ -242,9 +242,9 @@
   padding: 25px 20px;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  width: 260px;
+  width: 30%;
   flex: 1 1 250px;
-  max-width: 260px;
+  
   text-align: left;
   transition: transform 0.3s ease;
 }
@@ -987,6 +987,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  size: 10%;
   gap: 30px;
   margin-top: 30px;
 }
@@ -1031,4 +1032,5 @@
 #reportbutton :hover {
   background-color: #2e5978;
 }
+
 

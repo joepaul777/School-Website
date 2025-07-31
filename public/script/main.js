@@ -34,10 +34,10 @@
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > lastScrollY) {
-      // Scrolling down
+
       navbar.style.top = "-100px";
     } else {
-      // Scrolling up
+  
       navbar.style.top = "0"; 
     }
     lastScrollY = window.scrollY;
