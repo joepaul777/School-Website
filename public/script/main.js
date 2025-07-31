@@ -74,3 +74,39 @@
       alert("Please wait while the translation loads...");
     }
   });
+ const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  function startCounters() {
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      let current = 0;
+      const increment = Math.max(1, Math.ceil(target / 400)); // slower speed (was /200)
+
+      function updateCounter() {
+        current += increment;
+        if (current < target) {
+          counter.innerText = current;
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.innerText = target;
+        }
+      }
+
+      updateCounter();
+    });
+  }
+
+  const counter = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        startCounters();
+      }
+    });
+  }, { threshold: 0.3 });
+
+ const targetSections = document.querySelectorAll('.results-section, .achievements-section');
+targetSections.forEach(section => {
+  counter.observe(section);
+});
