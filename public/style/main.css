@@ -339,7 +339,7 @@ footer {
 
 .clubs-section {
   padding: 50px 20px;
-  background-color: var(--light-bg); /* Changed to --light-bg as --bg-light is not defined */
+   /* Changed to --light-bg as --bg-light is not defined */
   text-align: center;
 }
 
