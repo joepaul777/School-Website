@@ -74,30 +74,39 @@
       alert("Please wait while the translation loads...");
     }
   });
- const counters = document.querySelectorAll('.counter');
+ 
+  const counters = document.querySelectorAll('.counter');
   let started = false;
+  const duration =1000; // All counters complete in 2 seconds
 
   function startCounters() {
     counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
+      const targetAttr = counter.getAttribute('data-target');
+      const isPercent = targetAttr.includes('%');
+      const target = parseInt(targetAttr);
       let current = 0;
-      const increment = Math.max(1, Math.ceil(target / 400)); // slower speed (was /200)
 
-      function updateCounter() {
-        current += increment;
-        if (current < target) {
-          counter.innerText = current;
+      const startTime = performance.now();
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+
+        counter.innerText = isPercent ? value + '%' : value;
+
+        if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          counter.innerText = target;
+          counter.innerText = isPercent ? target + '%' : target;
         }
       }
 
-      updateCounter();
+      requestAnimationFrame(updateCounter);
     });
   }
 
-  const counter = new IntersectionObserver(entries => {
+  const counterObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !started) {
         started = true;
@@ -106,7 +115,8 @@
     });
   }, { threshold: 0.3 });
 
- const targetSections = document.querySelectorAll('.results-section, .achievements-section');
-targetSections.forEach(section => {
-  counter.observe(section);
-});
+  const targetSections = document.querySelectorAll('.results-section, .achievements-section');
+  targetSections.forEach(section => {
+    counterObserver.observe(section);
+  });
+
