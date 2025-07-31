@@ -1,3 +1,169 @@
+  :root {
+      --primary: #1B3C53;
+      --secondary: #456882;
+      --accent: #D2C1B6;
+      --light-bg: #F9F3EF;
+      --white: #FFFFFF;
+    }
+  .page-wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column; 
+  }
+
+  /* Ensure main content grows and pushes footer down */
+  main {
+    flex: 1;
+  }
+    #sel{
+      color: var(--white);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--primary);
+      position: relative;
+      padding-top: 80px;
+      box-sizing: border-box;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../images/kada1.webp") no-repeat center center/cover;
+      opacity: 0.5;
+       z-index: -1;
+    
+    }
+
+    #navbar {
+      background-color: var(--primary);
+      color: var(--accent);
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 95%; 
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: top 0.3s ease;
+      overflow-x: auto;   
+      z-index: 999;
+    
+    }
+
+    
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+      
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+       
+    }
+
+    nav a {
+      color: var(--accent);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      
+    }
+
+    nav a:hover {
+      color: var(--white);
+      
+    }
+
+    .hero-about {
+      padding: 150px 20px 260px;
+      text-align: center;
+      opacity: 1;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+      
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+     
+    }
+
+    .hero-about h2 {
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 15px;
+       
+    }
+
+    .hero-about p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 15px auto;
+      color: var(--secondary);
+    
+    }
+
+    #typing-text {
+      font-weight: 500;
+      margin-top: 10px;
+      color: var(--primary);
+    }
+
+    .info-section {
+      background-color: var(--white);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid var(--accent);
+    }
+
+    .info-box {
+      flex: 1 1 300px;
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .info-box h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+  
+  main {
+    flex: 1;
+  }
+    #sel{
+      color: var(--white);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--primary);
+      position: relative;
+      padding-top: 80px;
+      box-sizing: border-box;
+    }
 :root {
   --primary: #1B3C53;
   --secondary: #456882;
@@ -906,6 +1072,7 @@ footer {
 #reportbutton :hover {
   background-color: #444;
 }
+
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
