@@ -77,7 +77,7 @@
  
   const counters = document.querySelectorAll('.counter');
   let started = false;
-  const duration =1000; // All counters complete in 2 seconds
+  const duration =2000; // All counters complete in 2 seconds
 
   function startCounters() {
     counters.forEach(counter => {
