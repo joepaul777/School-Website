@@ -11,7 +11,7 @@ document.querySelectorAll('.submitBtn').forEach(button => {
     }
 
     try {
-      const response = await fetch('/api/send-report', {
+      const response = await fetch('api/send-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ to: recipient, message: message })
