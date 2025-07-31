@@ -42,7 +42,7 @@
 
   <section class="hero-about" id="hero">
     <h2>Welcome to GHSS Kadayiruppu</h2>
-    <p id="typing-text">| </p>
+    <p id="typing-text">|</p>
     <p>GHSS Kadayiruppu provides a friendly and supportive space where students learn, grow, and build confidence. We help every child develop good values, strong skills, and a love for learning – both in school and beyond.</p>
   </section>
 <section class="results-section" id="results">
@@ -178,48 +178,6 @@
   <footer>
     &copy; 2025 GHSS Kadayiruppu All rights reserved.
   </footer>
-  <script src="../script/script.js"></script>
-
-<script>
-  const counters = document.querySelectorAll('.counter');
-  let started = false;
-
-  function startCounters() {
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      let current = 0;
-      const increment = Math.max(1, Math.ceil(target / 400)); // slower speed (was /200)
-
-      function updateCounter() {
-        current += increment;
-        if (current < target) {
-          counter.innerText = current;
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.innerText = target;
-        }
-      }
-
-      updateCounter();
-    });
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        startCounters();
-      }
-    });
-  }, { threshold: 0.3 });
-
- const targetSections = document.querySelectorAll('.results-section, .achievements-section');
-targetSections.forEach(section => {
-  observer.observe(section);
-});
-
-</script>
-<script src="script/main.js"></script>
 
 
 <script type="text/javascript">
