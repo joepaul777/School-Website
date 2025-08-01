@@ -3,48 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Services | Kadayiruppu GHSS</title>
-  <link rel="stylesheet" href="style/main.css" />
+  <title>Student Services - Kadayiruppu GHSS</title>
+  <link rel="stylesheet" href="style/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    .services-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-  
+    .cardv {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .cardv:hover {
+      transform: translateY(-4px);
+    }
+
+    .cardv h4 {
+      color: #27ae60;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .cardv p {
+      font-size: 0.95rem;
+    }
+
+    .cardv a {
+      display: inline-block;
+      background-color: #27ae60;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .cardv a:hover {
+      background-color: #219150;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .services-section {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cardv:last-child {
+        grid-column: 1 / -1;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="page-wrapper">
+    <header id="navbar">
+      <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="club.html">Clubs</a>
+        <div class="dropdown" tabindex="0">
+          <button class="dropbtn">Materials ▾</button>
+          <div class="dropdown-content">
+            <a href="class5.html">Class 5</a>
+            <a href="class6.html">Class 6</a>
+            <a href="class7.html">Class 7</a>
+            <a href="class8.html">Class 8</a>
+            <a href="class9.html">Class 9</a>
+            <a href="class10.html">Class 10</a>
+            <a href="class11.html">Class 11</a>
+            <a href="class12.html">Class 12</a>
+          </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="report.html">Report</a>
+        <a href="services.html" id="sel">Services</a>
+      </nav>
+    </header>
 
-  <header>
-    <h1>🎓 Student Services</h1>
-    <p>Access Admissions, Results, Scholarships & Allotments</p>
-  </header>
+    <h2 style="text-align:center; margin-top: 30px;">🎓 Student Services</h2>
 
-  <section class="report-section">
+    <section class="services-section">
+      <div class="cardv">
+        <center>
+          <h4>📥 Admission Form</h4>
+          <p>Download the latest admission form in PDF format.</p>
+          <a href="admission_form.pdf" download>Download Form</a>
+        </center>
+      </div>
 
-    <div class="cardv">
-      <h2>📥 Admission Form</h2>
-      <p>Download the latest admission form for academic enrollment.</p>
-      <a href="admission_form.pdf" download>Download Form</a>
-    </div>
+      <div class="cardv">
+        <center>
+          <h4>📊 Result Portal</h4>
+          <p>Check your academic results and performance online.</p>
+          <a href="https://example.com/result-portal" target="_blank">Go to Result Portal</a>
+        </center>
+      </div>
 
-    <div class="cardv">
-      <h2>📊 Result Portal</h2>
-      <p>Check your exam results and performance records online.</p>
-      <a href="https://example.com/result-portal" target="_blank">Go to Result Portal</a>
-    </div>
+      <div class="cardv">
+        <center>
+          <h4>🎓 Scholarship Portal</h4>
+          <p>Apply for scholarships and track your application status.</p>
+          <a href="https://example.com/scholarship-portal" target="_blank">Go to Scholarship Portal</a>
+        </center>
+      </div>
 
-    <div class="cardv">
-      <h2>🎓 Scholarship Portal</h2>
-      <p>Apply for scholarships and monitor application progress.</p>
-      <a href="https://example.com/scholarship-portal" target="_blank">Go to Scholarship Portal</a>
-    </div>
+      <div class="cardv">
+        <center>
+          <h4>📌 Allotment Portal</h4>
+          <p>View your seat/course allotment details.</p>
+          <a href="https://example.com/allotment-portal" target="_blank">Go to Allotment Portal</a>
+        </center>
+      </div>
 
-    <div class="cardv">
-      <h2>📌 Allotment Portal</h2>
-      <p>View seat/course allotment details for the current academic year.</p>
-      <a href="https://example.com/allotment-portal" target="_blank">Go to Allotment Portal</a>
-    </div>
+      <div class="cardv">
+        <center>
+          <h4>📍 Our Location</h4>
+          <iframe src="https://maps.google.com/maps?q=kadayiruppu%20ghss&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+        </center>
+      </div>
+    </section>
 
-  </section>
-
+    <footer>
+      &copy; 2025 GHSS Kadayiruppu All rights reserved.
+    </footer>
+  </div>
+  <script src="script/main.js"></script>
 </body>
 </html>
