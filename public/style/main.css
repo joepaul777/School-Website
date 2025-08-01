@@ -130,12 +130,8 @@ nav a:hover {
   border-radius: 16px;
   max-height: 80vh;
   overflow-y: auto;
-  transition: transform 0.3s ease;
   opacity: 0.95;
   box-sizing: border-box;
-}
-.right-tab:hover {
-  transform: translateY(-4px);
 }
 
 .right-tab h4 {
