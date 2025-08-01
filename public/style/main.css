@@ -194,7 +194,7 @@ main {
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #585858;
+  background: linear-gradient(to bottom, #000000, #1B3C53);
   color: var(--primary);
   position: relative;
   padding-top: 80px;
@@ -223,7 +223,7 @@ body::before {
   width: 95%;
   top: 0;
   left: 0;
-  width: calc(100% - 80px); /* Adjust width to account for padding */
+  width: 95%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
@@ -267,7 +267,7 @@ nav a:hover {
 
 .hero-about h2 {
   font-size: 42px;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 15px;
   text-align: left;
 }
@@ -276,14 +276,14 @@ nav a:hover {
   font-size: 18px;
   max-width: 800px;
   margin: 15px 0;
-  color:#19546a;
+  color:#c4c4c4;
   text-align: left;
 }
 
 #typing-text {
   font-weight: 500;
   margin-top: 10px;
-  color: var(--primary);
+  color: var(--white);
   text-align: left;
 }
 
@@ -291,9 +291,9 @@ nav a:hover {
 .right-tab {
   position: fixed;
   top: 50px;
-  right: 30px; /* Moved away from edge */
-  width: 250px;
-  background-color: var(--light-bg);
+  right: 100px; /* Moved away from edge */
+  width: 370px;
+  background-color: rgb(249, 243, 239);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   padding: 20px;
   z-index: 999;
