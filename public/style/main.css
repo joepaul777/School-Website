@@ -258,11 +258,6 @@ nav a:hover {
   transition: all 1s ease-out;
 }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .hero-about h2 {
   font-size: 42px;
   color: var(--primary);
@@ -280,6 +275,10 @@ nav a:hover {
   font-weight: 500;
   margin-top: 10px;
   color: var(--primary);
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .info-section {
@@ -846,7 +845,6 @@ footer {
   background-color: var(--white);
   padding: 60px 20px;
   text-align: center;
-  border-top: 2px solid var(--accent);
   margin: 100px 60px;
   border-radius: 30px;
 }
