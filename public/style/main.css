@@ -26,6 +26,8 @@
       position: relative;
       padding-top: 80px;
       box-sizing: border-box;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -214,6 +216,7 @@ body::before {
   color: var(--accent);
   padding: 20px 40px;
   position: fixed;
+  width: 95%;
   top: 0;
   left: 0;
   width: calc(100% - 80px); /* Adjust width to account for padding */
