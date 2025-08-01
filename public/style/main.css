@@ -194,11 +194,13 @@ main {
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--light-bg);
+  background-color: #585858;
   color: var(--primary);
   position: relative;
   padding-top: 80px;
   box-sizing: border-box;
+  width:100%;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -256,35 +258,83 @@ nav a:hover {
 }
 
 .hero-about {
-  padding: 150px 20px 260px;
-  text-align: center;
+  padding: 150px 40px 260px;
+  text-align: left;
   opacity: 1;
   transform: translateY(20px);
   transition: all 1s ease-out;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .hero-about h2 {
   font-size: 42px;
   color: var(--primary);
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .hero-about p {
   font-size: 18px;
   max-width: 800px;
-  margin: 15px auto;
-  color: var(--secondary);
+  margin: 15px 0;
+  color:#19546a;
+  text-align: left;
 }
 
 #typing-text {
   font-weight: 500;
   margin-top: 10px;
   color: var(--primary);
+  text-align: left;
+}
+
+/* Right fixed tab */
+.right-tab {
+  position: fixed;
+  top: 50px;
+  right: 30px; /* Moved away from edge */
+  width: 250px;
+  background-color: var(--light-bg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 999;
+  border-radius: 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  opacity: 0.95;
+}
+.right-tab:hover {
+  transform: translateY(-4px);
+}
+
+.right-tab h4 {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 18px;
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 4px;
+}
+
+.tab-section {
+  margin-bottom: 20px;
+}
+
+.right-tab ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-tab li {
+  font-size: 14px;
+  color: #333;
+  padding: 4px 0;
+}
+
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .info-section {
@@ -853,7 +903,6 @@ footer {
   background-color: var(--white);
   padding: 60px 20px;
   text-align: center;
-  border-top: 2px solid var(--accent);
   margin: 100px 60px;
   border-radius: 30px;
 }
