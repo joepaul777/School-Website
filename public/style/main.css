@@ -35,9 +35,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("../images/kada1.webp") no-repeat center center/cover;
+      background: url("../images/kada3.jpg") no-repeat center center/cover;
       opacity: 0.5;
-       z-index: -1;
+      z-index: -1;
     
     }
 
@@ -204,7 +204,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/kada1.webp") no-repeat center center/cover;
+  background: url("../images/kada3.jpg") no-repeat center center/cover;
   opacity: 0.5;
   z-index: -1;
 }
@@ -501,11 +501,12 @@ footer {
   text-align: center;
   font-size: 14px;
   padding: 15px 10px;
+  width: 100%;
 }
 
 .clubs-section {
   padding: 50px 20px;
-   /* Changed to --light-bg as --bg-light is not defined */
+  background-color: var(--light-bg); /* Changed to --light-bg as --bg-light is not defined */
   text-align: center;
 }
 
