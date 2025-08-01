@@ -1,5 +1,173 @@
-/* --- Corrected and Optimized CSS for both files --- */
+  :root {
+      --primary: #1B3C53;
+      --secondary: #456882;
+      --accent: #D2C1B6;
+      --light-bg: #F9F3EF;
+      --white: #FFFFFF;
+    }
+  .page-wrapper {
+    overflow-x: hidden;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column; 
+  }
 
+  /* Ensure main content grows and pushes footer down */
+  main {
+    flex: 1;
+  }
+    #sel{
+      color: var(--white);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--primary);
+      position: relative;
+      padding-top: 80px;
+      box-sizing: border-box;
+      
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../images/kada3.jpg") no-repeat center center/cover;
+      opacity: 0.5;
+      z-index: -1;
+    
+    }
+
+    #navbar {
+      background-color: var(--primary);
+      color: var(--accent);
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 95%; 
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: top 0.3s ease;
+      
+      z-index: 999;
+    
+    }
+
+    
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+      
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+       
+    }
+
+    nav a {
+      color: var(--accent);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      
+    }
+
+    nav a:hover {
+      color: var(--white);
+      
+    }
+
+    .hero-about {
+      padding: 150px 20px 260px;
+      text-align: center;
+      opacity: 1;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+      
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+     
+    }
+
+    .hero-about h2 {
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 15px;
+       
+    }
+
+    .hero-about p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 15px auto;
+      color: var(--secondary);
+    
+    }
+
+    #typing-text {
+      font-weight: 500;
+      margin-top: 10px;
+      color: var(--primary);
+    }
+
+    .info-section {
+      background-color: var(--white);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid var(--accent);
+    }
+
+    .info-box {
+      flex: 1 1 300px;
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .info-box h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+  
+  main {
+    flex: 1;
+  }
+    #sel{
+      color: var(--white);
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--primary);
+      position: relative;
+      padding-top: 80px;
+      box-sizing: border-box;
+    }
 :root {
   --primary: #1B3C53;
   --secondary: #456882;
@@ -9,8 +177,6 @@
 }
 
 .page-wrapper {
-  /* Use this as the main container to prevent overflow */
-  overflow-x: hidden; 
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,9 +199,8 @@ body {
   position: relative;
   padding-top: 80px;
   box-sizing: border-box;
-  width: 100%;
-  /* Hide horizontal overflow on the body as a fallback */
-  overflow-x: hidden; 
+  width:100%;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -55,6 +220,7 @@ body::before {
   color: var(--accent);
   padding: 20px 40px;
   position: fixed;
+  width: 95%;
   top: 0;
   left: 0;
   width: 95%;
@@ -64,6 +230,7 @@ body::before {
   align-items: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: top 0.3s ease;
+  overflow-x: auto; /* For potential overflow on small screens */
 }
 
 header h1 {
@@ -137,7 +304,6 @@ nav a:hover {
   opacity: 0.95;
   box-sizing: border-box;
 }
-
 .right-tab:hover {
   transform: translateY(-4px);
 }
@@ -350,7 +516,7 @@ iframe {
 .faculty-section h2 {
   font-size: 30px;
   margin-bottom: 30px;
-  color: var(--primary);
+  color: var(--primary); /* Changed to --primary as --medium-blue is not defined */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -381,7 +547,7 @@ iframe {
 .faculty-card h3 {
   font-size: 20px;
   margin-bottom: 6px;
-  color: var(--primary);
+  color: var(--primary); /* Changed to --primary as --dark-blue is not defined */
   font-weight: 600;
 }
 
@@ -418,6 +584,7 @@ footer {
 .club-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* Exactly 3 cards per row */
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
@@ -449,7 +616,7 @@ footer {
   margin-bottom: 15px;
   border: 2px solid var(--accent);
   border-radius: 50%;
-  background-color: var(--light-bg);
+  background-color: var(--light-bg); /* Changed to --light-bg as --bg-light is not defined */
   padding: 5px;
 }
 
@@ -550,6 +717,7 @@ footer {
 /* Dropdown button */
 .dropbtn {
   background-color: #1B3C53;
+  /* Primary color */
   color: var(--accent);
   margin-left: 18px;
   margin-right: -10px;
@@ -562,6 +730,7 @@ footer {
 
 /* Hover on dropdown button */
 .dropdown:hover .dropbtn {
+  /* Secondary theme color */
   color: white;
 }
 
@@ -572,7 +741,7 @@ footer {
   background-color: #1B3C53;
   width: 109px;
   margin-right: 30%;
-  margin-left: 0;
+  margin-left: 0  ;
   font-size: 12PX;
   padding-right: 18px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -586,6 +755,7 @@ footer {
 .dropdown-content a {
   background-color: #1B3C53;
   color: #ffffff;
+  /* Text in primary color */
   padding: 5px 7px;
   font-size: 12px;
   text-decoration: none;
@@ -597,6 +767,7 @@ footer {
 
 /* Hover on dropdown link */
 .dropdown-content a:hover {
+  /* Hover bg: secondary blue-grey */
   color: var(--secondary);
 }
 
@@ -918,7 +1089,7 @@ footer {
   background: #fefefe;
   padding: 50px 20px;
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 0  ;
 }
 
 .counter-container {
@@ -965,7 +1136,7 @@ footer {
   margin-left: 120px;
 }
 
-#reportbutton:hover {
+#reportbutton :hover {
   background-color: #444;
 }
 
@@ -974,7 +1145,7 @@ footer {
 @media (max-width: 1024px) {
   #navbar {
     padding: 15px 20px;
-    width: 100%;
+    width: calc(100% - 40px);
   }
 
   .hero-about {
@@ -1019,7 +1190,7 @@ footer {
   #navbar {
     flex-direction: column;
     padding: 10px 20px;
-    width: 100%;
+    width: calc(100% - 40px);
     align-items: flex-start;
   }
 
@@ -1032,19 +1203,13 @@ footer {
     width: 100%;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
     justify-content: center;
+
   }
 
   #navbar nav a {
     margin: 5px 10px;
-  }
-
-  .right-tab {
-    position: static;
-    width: 100%;
-    max-width: unset;
-    margin: 20px auto;
   }
 
   .hero-about {
@@ -1078,7 +1243,7 @@ footer {
   }
 
   .course-card {
-    width: 90%;
+    width: 90%; /* Occupy more width on small screens */
   }
 
   .results-section {
@@ -1104,7 +1269,7 @@ footer {
   }
 
   .club-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column on small screens */
   }
 
   .club-panel {
@@ -1131,8 +1296,8 @@ footer {
   }
 
   .dropdown-content {
-    width: auto;
-    left: 15px;
+    width: auto; /* Adjust width automatically */
+    left: 15px; /* Align with the button */
     right: auto;
   }
 
@@ -1162,12 +1327,12 @@ footer {
 
   .reportcard {
     width: 90%;
-    height: auto;
+    height: auto; /* Allow height to adjust */
   }
 
   #reportbutton {
-    margin: 20px auto;
-    display: block;
+    margin: 20px auto; /* Center button */
+    display: block; /* Make it a block element to take full width */
   }
 
   .study-material-section {
