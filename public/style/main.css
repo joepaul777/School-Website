@@ -6,6 +6,7 @@
       --white: #FFFFFF;
     }
   .page-wrapper {
+    overflow-x: hidden;
       min-height: 100%;
       display: flex;
       flex-direction: column; 
@@ -26,6 +27,9 @@
       position: relative;
       padding-top: 80px;
       box-sizing: border-box;
+      
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -55,7 +59,7 @@
       align-items: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: top 0.3s ease;
-      overflow-x: auto;   
+      
       z-index: 999;
     
     }
@@ -190,11 +194,13 @@ main {
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--light-bg);
+  background: linear-gradient(to bottom, #000000, #1B3C53);
   color: var(--primary);
   position: relative;
   padding-top: 80px;
   box-sizing: border-box;
+  width:100%;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -214,9 +220,10 @@ body::before {
   color: var(--accent);
   padding: 20px 40px;
   position: fixed;
+  width: 95%;
   top: 0;
   left: 0;
-  width: calc(100% - 80px); /* Adjust width to account for padding */
+  width: 95%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
@@ -251,35 +258,83 @@ nav a:hover {
 }
 
 .hero-about {
-  padding: 150px 20px 260px;
-  text-align: center;
+  padding: 150px 40px 260px;
+  text-align: left;
   opacity: 1;
   transform: translateY(20px);
   transition: all 1s ease-out;
 }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .hero-about h2 {
   font-size: 42px;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 15px;
+  text-align: left;
 }
 
 .hero-about p {
   font-size: 18px;
   max-width: 800px;
-  margin: 15px auto;
-  color: var(--secondary);
+  margin: 15px 0;
+  color:#c4c4c4;
+  text-align: left;
 }
 
 #typing-text {
   font-weight: 500;
   margin-top: 10px;
+  color: var(--white);
+  text-align: left;
+}
+
+/* Right fixed tab */
+.right-tab {
+  position: fixed;
+  top: 50px;
+  right: 100px; /* Moved away from edge */
+  width: 370px;
+  background-color: rgb(249, 243, 239);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 999;
+  border-radius: 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  opacity: 0.95;
+}
+.right-tab:hover {
+  transform: translateY(-4px);
+}
+
+.right-tab h4 {
+  margin-bottom: 8px;
   color: var(--primary);
+  font-size: 18px;
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 4px;
+}
+
+.tab-section {
+  margin-bottom: 20px;
+}
+
+.right-tab ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-tab li {
+  font-size: 14px;
+  color: #333;
+  padding: 4px 0;
+}
+
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .info-section {
@@ -501,6 +556,7 @@ footer {
   text-align: center;
   font-size: 14px;
   padding: 15px 10px;
+  width: 100%;
 }
 
 .clubs-section {
@@ -653,8 +709,8 @@ footer {
   background-color: #1B3C53;
   /* Primary color */
   color: var(--accent);
-  padding: 12px;
-  padding-left: 30px;
+  margin-left: 18px;
+  margin-right: -10px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -673,8 +729,9 @@ footer {
   display: none;
   position: fixed;
   background-color: #1B3C53;
-  width: 108px;
-  margin-right: 10%;
+  width: 109px;
+  margin-right: 30%;
+  margin-left: 0  ;
   font-size: 12PX;
   padding-right: 18px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -846,7 +903,6 @@ footer {
   background-color: var(--white);
   padding: 60px 20px;
   text-align: center;
-  border-top: 2px solid var(--accent);
   margin: 100px 60px;
   border-radius: 30px;
 }
@@ -1023,6 +1079,7 @@ footer {
   background: #fefefe;
   padding: 50px 20px;
   text-align: center;
+  margin-bottom: 0  ;
 }
 
 .counter-container {
@@ -1135,6 +1192,10 @@ footer {
   #navbar nav {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center;
+
   }
 
   #navbar nav a {

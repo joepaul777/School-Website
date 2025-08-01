@@ -75,48 +75,46 @@
     }
   });
  
-  const counters = document.querySelectorAll('.counter');
-  let started = false;
-  const duration =2000; // All counters complete in 2 seconds
+const counters = document.querySelectorAll('.counter');
+const duration = 2000; // All counters complete in 2 seconds
 
-  function startCounters() {
-    counters.forEach(counter => {
-      const targetAttr = counter.getAttribute('data-target');
-      const isPercent = targetAttr.includes('%');
-      const target = parseInt(targetAttr);
-      let current = 0;
+function animateCounter(counter) {
+  const targetAttr = counter.getAttribute('data-target');
+  const isPercent = targetAttr.includes('%');
+  const target = parseInt(targetAttr);
+  let current = 0;
 
-      const startTime = performance.now();
+  const startTime = performance.now();
 
-      function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = Math.floor(progress * target);
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(progress * target);
 
-        counter.innerText = isPercent ? value + '%' : value;
+    counter.innerText = isPercent ? value + '%' : value;
 
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.innerText = isPercent ? target + '%' : target;
-        }
-      }
-
+    if (progress < 1) {
       requestAnimationFrame(updateCounter);
-    });
+    } else {
+      counter.innerText = isPercent ? target + '%' : target;
+    }
   }
 
-  const counterObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        startCounters();
-      }
-    });
-  }, { threshold: 0.3 });
+  requestAnimationFrame(updateCounter);
+}
 
-  const targetSections = document.querySelectorAll('.results-section, .achievements-section');
-  targetSections.forEach(section => {
-    counterObserver.observe(section);
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+      entry.target.classList.add('counted');
+      animateCounter(entry.target);
+    }
   });
+}, { threshold: 0.3 });
+
+// Observe each counter individually
+counters.forEach(counter => {
+  counterObserver.observe(counter);
+});
+
 
