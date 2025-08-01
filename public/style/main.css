@@ -6,6 +6,7 @@
       --white: #FFFFFF;
     }
   .page-wrapper {
+    overflow-x: hidden;
       min-height: 100%;
       display: flex;
       flex-direction: column; 
@@ -26,6 +27,7 @@
       position: relative;
       padding-top: 80px;
       box-sizing: border-box;
+      
       width: 100%;
       overflow-x: hidden;
     }
@@ -57,7 +59,7 @@
       align-items: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: top 0.3s ease;
-      overflow-x: auto;   
+      
       z-index: 999;
     
     }
@@ -1141,6 +1143,10 @@ footer {
   #navbar nav {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Allow links to wrap to the next line */
+    justify-content: center;
+
   }
 
   #navbar nav a {
