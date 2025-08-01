@@ -290,18 +290,19 @@ nav a:hover {
 /* Right fixed tab */
 .right-tab {
   position: fixed;
-  top: 50px;
-  right: 100px; /* Moved away from edge */
-  width: 370px;
+  top: clamp(40px, 6vh, 80px);
+  right: clamp(20px, 6vw, 100px);
+  width: clamp(250px, 30vw, 370px);
   background-color: rgb(249, 243, 239);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  padding: 20px;
+  padding: clamp(16px, 3vw, 20px);
   z-index: 999;
   border-radius: 16px;
   max-height: 80vh;
   overflow-y: auto;
   transition: transform 0.3s ease;
   opacity: 0.95;
+  box-sizing: border-box;
 }
 .right-tab:hover {
   transform: translateY(-4px);
@@ -310,7 +311,7 @@ nav a:hover {
 .right-tab h4 {
   margin-bottom: 8px;
   color: var(--primary);
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   border-bottom: 1px solid var(--primary);
   padding-bottom: 4px;
 }
@@ -326,11 +327,22 @@ nav a:hover {
 }
 
 .right-tab li {
-  font-size: 14px;
+  font-size: clamp(13px, 1.5vw, 14px);
   color: #333;
   padding: 4px 0;
 }
 
+/* Make it adapt below hero on mobile */
+@media (max-width: 768px) {
+  .right-tab {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 30px auto;
+    width: 100%;
+    max-height: unset;
+  }
+}
 
 .show {
   opacity: 1;
@@ -556,7 +568,6 @@ footer {
   text-align: center;
   font-size: 14px;
   padding: 15px 10px;
-  width: 100%;
 }
 
 .clubs-section {
