@@ -556,12 +556,12 @@ footer {
   text-align: center;
   font-size: 14px;
   padding: 15px 10px;
-  width: 100%;
+
 }
 
 .clubs-section {
   padding: 50px 20px;
-  background-color: var(--light-bg); /* Changed to --light-bg as --bg-light is not defined */
+ /* Changed to --light-bg as --bg-light is not defined */
   text-align: center;
 }
 
