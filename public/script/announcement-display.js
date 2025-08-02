@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const announcementList = document.getElementById('announcement-list');
 
-  fetch('/api/announcements')
+  fetch('/api/get-announcement')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch announcements');
@@ -35,9 +35,3 @@ document.addEventListener('DOMContentLoaded', () => {
       announcementList.innerHTML = '<li>Error loading announcements.</li>';
     });
 });
-
-fetch('/api/announcements')
-  .then(res => res.json())
-  .then(data => {
-    // display announcements...
-  });
