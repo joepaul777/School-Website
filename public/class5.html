@@ -120,45 +120,6 @@
   <footer style="margin-top:  57px;">
     &copy; 2025 Kadayiruppu GHSS. All rights reserved.
   </footer>
-<div id="google_translate_element" style="display: none;"></div>
-
-<button onclick="translateMalayalam()" style="position: fixed; left: 0; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; padding: 10px; background-color: #004d40; color: white; border: none; border-radius: 0 5px 5px 0; cursor: pointer; z-index: 9999;">
-  മലയാളം
-</button>
-
-
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'ml',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-
-  function translateMalayalam() {
-    const select = document.querySelector(".goog-te-combo");
-    if (select) {
-      select.value = 'ml';
-      select.dispatchEvent(new Event('change'));
-    }
-  }
-
-  window.addEventListener('load', function () {
-    // Wait a bit and hide banner + wrapper
-    setTimeout(() => {
-      const frame = document.querySelector('iframe.goog-te-banner-frame');
-      if (frame) frame.style.display = 'none';
-
-      const skip = document.querySelector('.skiptranslate');
-      if (skip) skip.style.display = 'none';
-
-      document.body.style.top = '0px';
-    }, 1000);
-  });
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 <script src="script/main.js"></script>
