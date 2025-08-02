@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "nodemailer": "^7.0.5"
   },
   "description": "",
+=======
+    "body": "^5.1.0",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.5"
+  },
+>>>>>>> c622503b42d1ba5023831212a1d97959f858ee4e
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -22,5 +29,10 @@
   "bugs": {
     "url": "https://github.com/joepaul777/School-Website/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/joepaul777/School-Website#readme"
+=======
+  "homepage": "https://github.com/joepaul777/School-Website#readme",
+  "description": ""
+>>>>>>> c622503b42d1ba5023831212a1d97959f858ee4e
 }
