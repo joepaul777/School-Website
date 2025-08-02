@@ -11,82 +11,86 @@
 </head>
 <body>
 
-    <header id="navbar">
-      <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="faculty.html">Faculty</a>
-        <a href="club.html">Clubs</a>
-        <div class="dropdown" tabindex="0">
-          <button class="dropbtn">Materials ▾</button>
-          <div class="dropdown-content">
-            <a href="class5.html">Class 5</a>
-            <a href="class6.html">Class 6</a>
-            <a href="class7.html">Class 7</a>
-            <a href="class8.html">Class 8</a>
-            <a href="class9.html">Class 9</a>
-            <a href="class10.html">Class 10</a>
-            <a href="class11.html">Class 11</a>
-            <a href="class12.html">Class 12</a>
-          </div>
-        </div>
-        <a href="gallery.html">Gallery</a>
-        <a href="report.html">Report</a>
-        <a href="contact.html">Contact</a>
-        <a href="services.html" id="sel">Services</a>
-      </nav>
-    </header>
+<header id="navbar">
+  <a href="index.html" class="home">
+    <h1>GHSS KADAYIRUPPU</h1>
+  </a>
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </label>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="club.html">Clubs</a>
+    <div class="dropdown" tabindex="0">
+      <button class="dropbtn">Materials ▾</button>
+      <div class="dropdown-content">
+        <a href="class5.html" id="sel">Class 5</a>
+        <a href="class6.html">Class 6</a>
+        <a href="class7.html">Class 7</a>
+        <a href="class8.html">Class 8</a>
+        <a href="class9.html">Class 9</a>
+        <a href="class10.html">Class 10</a>
+        <a href="class11.html">Class 11</a>
+        <a href="class12.html">Class 12</a>
+      </div>
+    </div>
+    <a href="gallery.html">Gallery</a>
+    <a href="report.html">Report</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 <div class="report-section">
     <h2 style="text-align:center; margin-top: 30px;">🎓 Student Services</h2>
-<section class="report-section" style="display: flex; flex-direction: column; gap: 30px;">
 
-  <!-- Row 1 -->
-  <div style="display: flex; justify-content: space-between; align-items: stretch;">
-    <div class="cardv" style="padding: 20px; border: 1px solid #ccc; width: 35%; min-height: 120px; display: flex; flex-direction: column; justify-content: center;">
+    <section class="report-section" style="display: flex; flex-direction: column; gap: 20px;">
+
+  <div class="cardv" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid #ccc;">
+    <div>
       <h4>📥 Admission Form</h4>
       <a href="admission_form.pdf" download>Download Form</a>
     </div>
-    <div style="width: 60%; display: flex; align-items: center;">
-      <p>The admission form for the current academic year is available. Please download, fill out, and submit it before the deadline.</p>
+    <div>
+      <p>The admission form for the current academic year is now available for download in PDF format.</p>
     </div>
   </div>
 
-  <!-- Row 2 -->
-  <div style="display: flex; justify-content: space-between; align-items: stretch;">
-    <div class="cardv" style="padding: 20px; border: 1px solid #ccc; width: 35%; min-height: 120px; display: flex; flex-direction: column; justify-content: center;">
+  <div class="cardv" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid #ccc;">
+    <div>
       <h4>📊 Result Portal</h4>
       <a href="https://example.com/result-portal" target="_blank">Go to Result Portal</a>
     </div>
-    <div style="width: 60%; display: flex; align-items: center;">
-      <p>Students can check their academic performance online through the secure result portal using their roll number.</p>
+    <div>
+      <p>Access your term-wise and final examination results online with ease and speed.</p>
     </div>
   </div>
 
-  <!-- Row 3 -->
-  <div style="display: flex; justify-content: space-between; align-items: stretch;">
-    <div class="cardv" style="padding: 20px; border: 1px solid #ccc; width: 35%; min-height: 120px; display: flex; flex-direction: column; justify-content: center;">
+  <div class="cardv" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid #ccc;">
+    <div>
       <h4>🎓 Scholarship Portal</h4>
       <a href="https://example.com/scholarship-portal" target="_blank">Go to Scholarship Portal</a>
     </div>
-    <div style="width: 60%; display: flex; align-items: center;">
-      <p>Eligible students can apply for government and private scholarships, track status, and receive updates via this portal.</p>
+    <div>
+      <p>Apply for various student scholarships and monitor your application progress.</p>
     </div>
   </div>
 
-  <!-- Row 4 -->
-  <div style="display: flex; justify-content: space-between; align-items: stretch;">
-    <div class="cardv" style="padding: 20px; border: 1px solid #ccc; width: 35%; min-height: 120px; display: flex; flex-direction: column; justify-content: center;">
+  <div class="cardv" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid #ccc;">
+    <div>
       <h4>📌 Allotment Portal</h4>
       <a href="https://example.com/allotment-portal" target="_blank">Go to Allotment Portal</a>
     </div>
-    <div style="width: 60%; display: flex; align-items: center;">
-      <p>Check your course/seat allotment details and confirm your selection before the final date of admission.</p>
+    <div>
+      <p>Check your subject, stream, or course allotment details for the upcoming session.</p>
     </div>
   </div>
 
 </section>
-
-
 
 </div>
 

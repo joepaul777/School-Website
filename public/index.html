@@ -11,18 +11,26 @@
 </head>
 <body>
   <div id="google_translate_element" style="display:none;"></div>
-  <header id="navbar">
-    
-    <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
-    <nav>
-      <a href="index.html" id="sel">Home</a>
-      <a href="faculty.html">Faculty</a>
-      <a href="club.html">Clubs</a>
-      <div class="dropdown"  tabindex="0">
+<header id="navbar">
+  <a href="index.html" class="home">
+    <h1>GHSS KADAYIRUPPU</h1>
+  </a>
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </label>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="club.html">Clubs</a>
+    <div class="dropdown" tabindex="0">
       <button class="dropbtn">Materials ▾</button>
       <div class="dropdown-content">
-    
-        <a href="class5.html">Class 5</a>
+        <a href="class5.html" id="sel">Class 5</a>
         <a href="class6.html">Class 6</a>
         <a href="class7.html">Class 7</a>
         <a href="class8.html">Class 8</a>
@@ -35,11 +43,9 @@
       <a href="announcedisplay.html">Announcements</a>
       <a href="gallery.html ">Gallery</a>
       <a href="report.html">Report</a>
-      <a href="contact.html">Contact</a>
-
-      
+      <a href="contact.html">Contact</a>  
     </nav>
-  </header>
+</header>
 
   <section class="hero-about" id="hero">
     <h2>Welcome to GHSS Kadayiruppu</h2>
@@ -149,27 +155,29 @@
 
 <section class="achievements-section">
   <h2>Our Achievements</h2>
-  <div class="counter-container">
-    <div class="counter-box">
-      <P class="counter" data-target="100%">0</P>
+  <div class="achievements-container">
+    <div class="achievement-item">
+      <p class="counter" data-target="100%">0</p>
       <span>Pass Percentage</span>
     </div>
-   
-    <div class="counter-box">
+    <div class="divider"></div>
+    <div class="achievement-item">
       <p class="counter" data-target="50">0</p>
-      <span>Number of Students with Full A+ </span>
+      <span>Students with Full A+</span>
     </div>
-   
-    <div class="counter-box">
+    <div class="divider"></div>
+    <div class="achievement-item">
       <p class="counter" data-target="66">0</p>
-      <span>Number of Experienced Faculties</span>
+      <span>Experienced Faculties</span>
     </div>
-     <div class="counter-box">
+    <div class="divider"></div>
+    <div class="achievement-item">
       <p class="counter" data-target="76">0</p>
       <span>Years of Experience</span>
     </div>
   </div>
 </section>
+
 <div id="student-service" class="report-section" style="margin: 0; border-radius: 0;">
   <h2 style="text-align:center; margin-top: 30px;">🎓 Student Services</h2>
 
