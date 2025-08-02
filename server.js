@@ -1,47 +1,57 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+app.use(express.json());
 
-// Serve HTML pages
-app.get('/announcement', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'announcement.html'));
+// API to get the latest announcement
+app.get('/get-announcement', (req, res) => {
+  fs.readFile('announcements.json', 'utf-8', (err, data) => {
+    if (err || !data) {
+      return res.json([]);
+    }
+
+    try {
+      const announcements = JSON.parse(data);
+      res.json(announcements);
+    } catch (e) {
+      res.json([]);
+    }
+  });
 });
 
-app.get('/announcement-display', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'announcedisplay.html'));
-});
-
-// Handle submission
-app.post('/submit-announcement', (req, res) => {
-  const { content } = req.body;
-  const announcement = {
-    content,
-    time: new Date().toLocaleString()
+// API to post a new announcement
+// API to post a new announcement
+app.post('/post-announcement', (req, res) => {
+  const content = req.body.content;
+  const newAnnouncement = {
+    content: content,
+    time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
   };
 
-  const filePath = path.join(__dirname, 'announcement-data.json');
+  fs.readFile('announcements.json', 'utf-8', (err, data) => {
+    let announcements = [];
+    if (!err && data) {
+      try {
+        announcements = JSON.parse(data);
+        if (!Array.isArray(announcements)) announcements = [];
+      } catch (e) {
+        announcements = [];
+      }
+    }
 
-  fs.writeFile(filePath, JSON.stringify(announcement, null, 2), (err) => {
-    if (err) return res.status(500).send('Error saving announcement');
-    res.redirect('/announcement-display');
+    announcements.unshift(newAnnouncement); // add to beginning
+
+    fs.writeFile('announcements.json', JSON.stringify(announcements, null, 2), err => {
+      if (err) return res.status(500).json({ error: 'Unable to write' });
+      res.json({ success: true });
+    });
   });
 });
 
-// Serve announcement data
-app.get('/get-announcement', (req, res) => {
-  const filePath = path.join(__dirname, 'announcement-data.json');
-  fs.readFile(filePath, (err, data) => {
-    if (err) return res.status(500).send('Error reading announcement');
-    res.json(JSON.parse(data));
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
