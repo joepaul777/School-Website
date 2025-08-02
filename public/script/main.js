@@ -116,6 +116,14 @@ const counterObserver = new IntersectionObserver(entries => {
 counters.forEach(counter => {
   counterObserver.observe(counter);
 });
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
 
   const scrollBtn = document.getElementById("scrollTopBtn");
 

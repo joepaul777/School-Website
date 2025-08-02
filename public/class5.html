@@ -111,20 +111,25 @@
 
   </main>
    </div>
+   
+
   <!-- Footer -->
   <footer style="margin-top:  57px;">
     &copy; 2025 Kadayiruppu GHSS. All rights reserved.
   </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburgerBtn = document.querySelector('.hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
+<div id="google_translate_element" style="display: none;"></div>
 
-        hamburgerBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('nav-open');
-        });
-    });
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ml',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
   
