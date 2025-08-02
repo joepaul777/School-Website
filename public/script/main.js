@@ -149,55 +149,5 @@ window.onclick = function(e) {
 }
 
 
-//announcement
-const announcementForm = document.getElementById('announcementForm');
-const announcementInput = document.getElementById('announcementInput');
-
-const channel = new BroadcastChannel('announcement_channel');
-
-announcementForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const text = announcementInput.value.trim();
-  if (text === '') return;
-
-  const now = new Date();
-  const dateTime = now.toLocaleString();
-
-  // Save to localStorage
-  localStorage.setItem('announcementText', text);
-  localStorage.setItem('announcementTime', dateTime);
-
-  // Send via BroadcastChannel
-  channel.postMessage({
-    text,
-    time: dateTime
-  });
-
-  // Optional: Redirect
-  window.location.href = 'announcedisplay.html';
-});
-
-const textElem = document.getElementById('announcementText');
-const timeElem = document.getElementById('announcementTime');
-
-function updateDisplay(text, time) {
-  textElem.textContent = text || 'No announcement found.';
-  timeElem.textContent = time || '';
-}
-
-// Initial load
-updateDisplay(
-  localStorage.getItem('announcementText'),
-  localStorage.getItem('announcementTime')
-);
-
-// Listen for updates from other page
-const message = new BroadcastChannel('announcement_message');
-message.onmessage = (event) => {
-  const { text, time } = event.data;
-  updateDisplay(text, time);
-};
-
 
 
