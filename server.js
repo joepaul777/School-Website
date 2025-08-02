@@ -1,15 +1,34 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { MongoClient } = require('mongodb');
+
 const app = express();
 const PORT = 3000;
+
+// === Replace this with your actual MongoDB URI ===
+const uri = 'mongodb+srv://kghss12345:r9cIJGSZKIWJe0Gf@cluster0.tj9scpo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const client = new MongoClient(uri);
+let announcementsCollection;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve HTML pages
+// Connect to MongoDB
+async function connectDB() {
+  try {
+    await client.connect();
+    const db = client.db('myAnnouncementDB');
+    announcementsCollection = db.collection('announcements');
+    console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+  }
+}
+connectDB();
+
+// Serve HTML Pages
 app.get('/announcement', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'announcement.html'));
 });
@@ -18,55 +37,33 @@ app.get('/announcement-display', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'announcement-display.html'));
 });
 
-// Handle announcement submission
-// Handle announcement submission (append to list)
-app.post('/submit-announcement', (req, res) => {
+// Submit announcement to DB
+app.post('/submit-announcement', async (req, res) => {
   const { content } = req.body;
+
   const newAnnouncement = {
     text: content,
-    timestamp: new Date().toISOString()
+    timestamp: new Date()
   };
 
-  const filePath = path.join(__dirname, 'announcement-data.json');
-
-  // Read existing data
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    let announcements = [];
-
-    if (!err && data) {
-      try {
-        announcements = JSON.parse(data);
-        if (!Array.isArray(announcements)) announcements = [];
-      } catch (e) {
-        announcements = [];
-      }
-    }
-
-    // Append new announcement
-    announcements.push(newAnnouncement);
-
-    // Write back to file
-    fs.writeFile(filePath, JSON.stringify(announcements, null, 2), (err) => {
-      if (err) {
-        console.error('Error saving announcement:', err);
-        return res.status(500).json({ success: false, message: 'Error saving announcement' });
-      }
-      res.json({ success: true, message: 'Announcement saved successfully!' });
-    });
-  });
+  try {
+    await announcementsCollection.insertOne(newAnnouncement);
+    res.json({ success: true, message: 'Announcement saved successfully!' });
+  } catch (err) {
+    console.error('Insert error:', err);
+    res.status(500).json({ success: false, message: 'Error saving announcement' });
+  }
 });
 
-
-// Serve saved announcement
-app.get('/get-announcement', (req, res) => {
-  const filePath = path.join(__dirname, 'announcement-data.json');
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      console.error('Error reading announcement:', err);
-      return res.status(500).send('Error reading announcement');
-    }
-    res.json(JSON.parse(data));
-  });
+// Fetch announcements from DB
+app.get('/api/announcements', async (req, res) => {
+  try {
+    const announcements = await announcementsCollection.find().sort({ timestamp: -1 }).toArray();
+    res.json(announcements);
+  } catch (err) {
+    console.error('Fetch error:', err);
+    res.status(500).send('Error loading announcements');
+  }
 });
 
 app.listen(PORT, () => {
