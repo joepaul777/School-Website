@@ -110,45 +110,37 @@
   <footer style="margin-top: 43px;">
     &copy; 2025 Kadayiruppu GHSS. All rights reserved.
   </footer>
-  <!-- Translate Button -->
-<button id="translateButton" onclick="translateToMalayalam()" >
-  മലയാളം
-</button>
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
 
-<!-- Google Translate Widget (Hidden) -->
-<div id="google_translate_element" style="display: none;"></div>
+/* Prevent layout shifting */
+body {
+  top: 0px !important;
+}
 
-<!-- Google Translate Script -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'ml',
-      autoDisplay: false
-    }, 'google_translate_element');
+/* Hide dropdown and Google Translate logo */
+.goog-te-gadget,
+.goog-te-combo,
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Hide the wrapper added by Google */
+body > .skiptranslate {
+  display: none !important;
+}
+@media (min-width: 768px) {
+  .facility {
+    flex-direction: row;
   }
-  function translateToMalayalam() {
-    const tryTranslate = () => {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = 'ml'; // Malayalam
-        select.dispatchEvent(new Event('change'));
-        return true;
-      }
-      return false;
-    };
 
-    let attempts = 0;
-    const maxAttempts = 10;
-    const interval = setInterval(() => {
-      attempts++;
-      if (tryTranslate() || attempts > maxAttempts) {
-        clearInterval(interval);
-      }
-    }, 300);
+  .facility img {
+    width: clamp(200px, 35%, 300px);
+    margin-right: clamp(1rem, 2vw, 2rem);
   }
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+}
+
 <script src="script/main.js"></script>
 </body>
 </html>
