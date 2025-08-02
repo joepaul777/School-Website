@@ -15,30 +15,56 @@ app.get('/announcement', (req, res) => {
 });
 
 app.get('/announcement-display', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'announcedisplay.html'));
+  res.sendFile(path.join(__dirname, 'public', 'announcement-display.html'));
 });
 
-// Handle submission
+// Handle announcement submission
+// Handle announcement submission (append to list)
 app.post('/submit-announcement', (req, res) => {
   const { content } = req.body;
-  const announcement = {
-    content,
-    time: new Date().toLocaleString()
+  const newAnnouncement = {
+    text: content,
+    timestamp: new Date().toISOString()
   };
 
   const filePath = path.join(__dirname, 'announcement-data.json');
 
-  fs.writeFile(filePath, JSON.stringify(announcement, null, 2), (err) => {
-    if (err) return res.status(500).send('Error saving announcement');
-    res.redirect('/announcement-display');
+  // Read existing data
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    let announcements = [];
+
+    if (!err && data) {
+      try {
+        announcements = JSON.parse(data);
+        if (!Array.isArray(announcements)) announcements = [];
+      } catch (e) {
+        announcements = [];
+      }
+    }
+
+    // Append new announcement
+    announcements.push(newAnnouncement);
+
+    // Write back to file
+    fs.writeFile(filePath, JSON.stringify(announcements, null, 2), (err) => {
+      if (err) {
+        console.error('Error saving announcement:', err);
+        return res.status(500).json({ success: false, message: 'Error saving announcement' });
+      }
+      res.json({ success: true, message: 'Announcement saved successfully!' });
+    });
   });
 });
 
-// Serve announcement data
+
+// Serve saved announcement
 app.get('/get-announcement', (req, res) => {
   const filePath = path.join(__dirname, 'announcement-data.json');
   fs.readFile(filePath, (err, data) => {
-    if (err) return res.status(500).send('Error reading announcement');
+    if (err) {
+      console.error('Error reading announcement:', err);
+      return res.status(500).send('Error reading announcement');
+    }
     res.json(JSON.parse(data));
   });
 });

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const announcementList = document.getElementById('announcement-list');
 
-  fetch('/api/announcements')
+  fetch('/get-announcement')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch announcements');
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Display each announcement
       data.reverse().forEach(item => {
         const li = document.createElement('li');
-
         const content = document.createElement('div');
         content.textContent = item.text;
 
