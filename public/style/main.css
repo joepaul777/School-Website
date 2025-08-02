@@ -574,7 +574,9 @@ footer {
   padding-right: 5px;
   left: 0;
 }
-
+.dropdown-content.show {
+  display: block;
+}
 .dropdown-content a {
   background-color: #1B3C53;
   color: #ffffff;
@@ -1083,20 +1085,7 @@ footer {
     padding-top: 60px;
     /* Adjust for smaller fixed header */
   }
-    .dropbtn {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-    line-height: 1.1 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  .dropbtn {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-    line-height: 1.1 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+
   #navbar {
     flex-direction: row;
     padding: 10px 20px;
@@ -1484,3 +1473,4 @@ cards {
   display: flex;
   flex-direction: column;
 }
+
