@@ -11,11 +11,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve HTML pages
 app.get('/announcement', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'announcement.html'));
+  res.sendFile(path.join(__dirname, 'public', 'announcement.html'));
 });
 
 app.get('/announcement-display', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'announcement-display.html'));
+  res.sendFile(path.join(__dirname, 'public', 'announcedisplay.html'));
 });
 
 // Handle submission
@@ -26,7 +26,7 @@ app.post('/submit-announcement', (req, res) => {
     time: new Date().toLocaleString()
   };
 
-  const filePath = path.join(__dirname, 'public', 'announcement-data.json');
+  const filePath = path.join(__dirname, 'announcement-data.json');
 
   fs.writeFile(filePath, JSON.stringify(announcement, null, 2), (err) => {
     if (err) return res.status(500).send('Error saving announcement');
@@ -36,7 +36,7 @@ app.post('/submit-announcement', (req, res) => {
 
 // Serve announcement data
 app.get('/get-announcement', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'announcement-data.json');
+  const filePath = path.join(__dirname, 'announcement-data.json');
   fs.readFile(filePath, (err, data) => {
     if (err) return res.status(500).send('Error reading announcement');
     res.json(JSON.parse(data));
