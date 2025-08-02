@@ -37,9 +37,9 @@
   </header>
 
     <h1 class="announce-heading">What's The Announcement</h1>
-  <form id="announcementForm" class="announce-form">
-    <input type="text" id="announcementInput" class="announce-input" placeholder="Enter Here" required />
-    <button type="submit" class="announce-button">Submit</button>
+  <form action="/submit-announcement" method="POST">
+    <input type="text" name="content" placeholder="Enter Here" required />
+    <button type="submit">Submit</button>
   </form>
 
 
