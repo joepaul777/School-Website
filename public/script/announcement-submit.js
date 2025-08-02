@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('announcementForm');
-  const input = document.getElementById('announcementInput');
-  const message = document.getElementById('save-message');
+  const form = document.getElementById('announcement-form');
+  const input = document.getElementById('content');
+  const message = document.getElementById('response');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    fetch('/submit-announcement', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content: input.value })
-    })
-    .then(res => res.json())
-    .then(data => {
+
+    try {
+      const response = await fetch('/api/submit-announcement', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: input.value })
+      });
+
+      const data = await response.json();
+
       if (data.success) {
         message.textContent = data.message;
         message.style.color = 'green';
@@ -21,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         message.textContent = 'Failed to save announcement';
         message.style.color = 'red';
       }
-    })
-    .catch(() => {
+    } catch (err) {
+      console.error(err);
       message.textContent = 'Error submitting announcement';
       message.style.color = 'red';
-    });
+    }
   });
 });

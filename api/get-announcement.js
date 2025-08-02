@@ -1,38 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const announcementList = document.getElementById('announcement-list');
+import { MongoClient } from 'mongodb';
 
-  fetch('/api/get-announcement')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch announcements');
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (!Array.isArray(data) || data.length === 0) {
-        announcementList.innerHTML = '<li>No announcements yet.</li>';
-        return;
-      }
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+const dbName = 'myAnnouncementDB';
 
-      announcementList.innerHTML = ''; // Clear default message
+export default async function handler(req, res) {
+  if (req.method !== 'GET') return res.status(405).end();
 
-      data.forEach(item => {
-        const li = document.createElement('li');
-        const content = document.createElement('div');
-        content.textContent = item.text;
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection('announcements');
 
-        const time = document.createElement('time');
-        const dateObj = new Date(item.timestamp);
-        time.textContent = dateObj.toLocaleString();
-
-        li.appendChild(content);
-        li.appendChild(time);
-
-        announcementList.appendChild(li);
-      });
-    })
-    .catch(error => {
-      console.error(error);
-      announcementList.innerHTML = '<li>Error loading announcements.</li>';
-    });
-});
+    const announcements = await collection.find().sort({ timestamp: -1 }).toArray();
+    res.status(200).json(announcements);
+  } catch (err) {
+    console.error('Fetch error:', err);
+    res.status(500).json({ success: false, message: 'Error reading from database' });
+  } finally {
+    await client.close();
+  }
+}

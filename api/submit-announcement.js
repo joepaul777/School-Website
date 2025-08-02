@@ -1,27 +1,26 @@
-document.getElementById('announcement-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const content = document.getElementById('content').value;
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+const dbName = 'myAnnouncementDB';
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).end();
 
   try {
-    const response = await fetch('/api/submit-announcement', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ content })
-    });
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection('announcements');
 
-    const result = await response.json();
+    const { content } = req.body;
+    const newAnn = { text: content, timestamp: new Date() };
 
-    const messageEl = document.getElementById('response');
-    if (result.success) {
-      messageEl.textContent = result.message;
-      document.getElementById('announcement-form').reset();
-    } else {
-      messageEl.textContent = result.message;
-    }
+    await collection.insertOne(newAnn);
+    res.status(200).json({ success: true, message: 'Announcement saved successfully!' });
   } catch (err) {
-    console.error(err);
-    document.getElementById('response').textContent = 'Error submitting announcement.';
+    console.error('Save error:', err);
+    res.status(500).json({ success: false, message: 'Database save failed' });
+  } finally {
+    await client.close();
   }
-});
+}
