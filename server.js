@@ -9,31 +9,25 @@ app.use(express.json());
 
 const filePath = path.join(__dirname, 'announcements.json');
 
-// GET all announcements
-app.get('/get-announcement', (req, res) => {
-  fs.readFile(filePath, 'utf-8', (err, data) => {
-    if (err || !data) {
-      return res.json([]);
-    }
-    try {
-      const announcements = JSON.parse(data);
-      res.json(Array.isArray(announcements) ? announcements : []);
-    } catch (e) {
-      res.json([]);
-    }
-  });
+app.get('/announcement-display', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'announcement-display.html'));
 });
 
-// POST new announcement (append)
-app.post('/post-announcement', (req, res) => {
-  const content = req.body.content;
+// Handle announcement submission
+// Handle announcement submission (append to list)
+app.post('/submit-announcement', (req, res) => {
+  const { content } = req.body;
   const newAnnouncement = {
-    content: content,
-    time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    text: content,
+    timestamp: new Date().toISOString()
   };
 
-  fs.readFile(filePath, 'utf-8', (err, data) => {
+  const filePath = path.join(__dirname, 'announcement-data.json');
+
+  // Read existing data
+  fs.readFile(filePath, 'utf8', (err, data) => {
     let announcements = [];
+
     if (!err && data) {
       try {
         announcements = JSON.parse(data);
@@ -43,12 +37,30 @@ app.post('/post-announcement', (req, res) => {
       }
     }
 
-    announcements.unshift(newAnnouncement); // newest on top
+    // Append new announcement
+    announcements.push(newAnnouncement);
 
-    fs.writeFile(filePath, JSON.stringify(announcements, null, 2), err => {
-      if (err) return res.status(500).json({ success: false });
-      res.json({ success: true });
+    // Write back to file
+    fs.writeFile(filePath, JSON.stringify(announcements, null, 2), (err) => {
+      if (err) {
+        console.error('Error saving announcement:', err);
+        return res.status(500).json({ success: false, message: 'Error saving announcement' });
+      }
+      res.json({ success: true, message: 'Announcement saved successfully!' });
     });
+  });
+});
+
+
+// Serve saved announcement
+app.get('/get-announcement', (req, res) => {
+  const filePath = path.join(__dirname, 'announcement-data.json');
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      console.error('Error reading announcement:', err);
+      return res.status(500).send('Error reading announcement');
+    }
+    res.json(JSON.parse(data));
   });
 });
 
