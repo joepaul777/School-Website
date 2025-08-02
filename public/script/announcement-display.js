@@ -35,3 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
       announcementList.innerHTML = '<li>Error loading announcements.</li>';
     });
 });
+
+fetch('/api/get-announcement')
+  .then(res => res.json())
+  .then(data => {
+    // display announcements...
+  });

@@ -148,6 +148,12 @@ window.onclick = function(e) {
   }
 }
 
+fetch('/api/submit-announcement', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ content: input.value }),
+})
+
 
 
 
