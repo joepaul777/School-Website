@@ -29,7 +29,7 @@ body {
   position: relative;
   padding-top: 80px;
   box-sizing: border-box;
-  width:100%;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -53,14 +53,12 @@ body::before {
   width: 95%;
   top: 0;
   left: 0;
-  width: 95%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: top 0.3s ease;
-  overflow-x: auto; /* For potential overflow on small screens */
 }
 
 header h1 {
@@ -106,7 +104,7 @@ nav a:hover {
   font-size: 18px;
   max-width: 800px;
   margin: 15px 0;
-  color:#c4c4c4;
+  color: #c4c4c4;
   text-align: left;
 }
 
@@ -342,7 +340,8 @@ iframe {
 .faculty-section h2 {
   font-size: 30px;
   margin-bottom: 30px;
-  color: var(--primary); /* Changed to --primary as --medium-blue is not defined */
+  color: var(--primary);
+  /* Changed to --primary as --medium-blue is not defined */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -373,7 +372,8 @@ iframe {
 .faculty-card h3 {
   font-size: 20px;
   margin-bottom: 6px;
-  color: var(--primary); /* Changed to --primary as --dark-blue is not defined */
+  color: var(--primary);
+  /* Changed to --primary as --dark-blue is not defined */
   font-weight: 600;
 }
 
@@ -442,7 +442,8 @@ footer {
   margin-bottom: 15px;
   border: 2px solid var(--accent);
   border-radius: 50%;
-  background-color: var(--light-bg); /* Changed to --light-bg as --bg-light is not defined */
+  background-color: var(--light-bg);
+  /* Changed to --light-bg as --bg-light is not defined */
   padding: 5px;
 }
 
@@ -534,16 +535,15 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Dropdown styling */
 .dropdown {
   position: relative;
   display: inline-block;
   z-index: 101;
 }
 
-/* Dropdown button */
 .dropbtn {
   background-color: #1B3C53;
-  /* Primary color */
   color: var(--accent);
   margin-left: 18px;
   margin-right: -10px;
@@ -551,39 +551,31 @@ footer {
   border: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover on dropdown button */
-.dropdown:hover .dropbtn {
-  /* Secondary theme color */
-  color: white;
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+  color: var(--white);
 }
 
-/* Dropdown content */
 .dropdown-content {
   display: none;
-  position: fixed;
+  position: absolute;
   background-color: #1B3C53;
   width: 109px;
-  margin-right: 30%;
-  margin-left: 0  ;
-  font-size: 12PX;
-  padding-right: 18px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   border-radius: 0;
   overflow: hidden;
   text-align: center;
+  right: 0;
 }
 
-/* Dropdown links */
 .dropdown-content a {
   background-color: #1B3C53;
   color: #ffffff;
-  /* Text in primary color */
-  padding: 5px 7px;
-  font-size: 12px;
+  padding: 10px 12px;
   text-decoration: none;
   display: block;
   font-size: 15px;
@@ -591,19 +583,41 @@ footer {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Hover on dropdown link */
 .dropdown-content a:hover {
-  /* Hover bg: secondary blue-grey */
-  color: var(--secondary);
+  background-color: var(--secondary);
 }
 
-/* Show dropdown on hover */
 .dropdown:focus-within .dropdown-content {
   display: block;
 }
 
 .dropdown:focus {
   outline: none;
+}
+
+/* Hamburger menu styling */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  z-index: 1001;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent);
+  transition: all 0.3s ease;
 }
 
 .cards {
@@ -914,7 +928,7 @@ footer {
   background: #fefefe;
   padding: 50px 20px;
   text-align: center;
-  margin-bottom: 0  ;
+  margin-bottom: 0;
 }
 
 .counter-container {
@@ -986,7 +1000,8 @@ footer {
   }
 
   .club-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cards per row on medium screens */
   }
 
   .club-panel {
@@ -1009,32 +1024,85 @@ footer {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 60px; /* Adjust for smaller fixed header */
+    padding-top: 60px;
+    /* Adjust for smaller fixed header */
   }
 
   #navbar {
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px 20px;
     width: calc(100% - 40px);
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  #navbar header h1 {
+  #navbar .home h1 {
     font-size: 22px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   #navbar nav {
     width: 100%;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap; /* Allow links to wrap to the next line */
-    justify-content: center;
-
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 0;
+    top: 60px;
+    left: 0;
+    background-color: var(--primary);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-  #navbar nav a {
-    margin: 5px 10px;
+  #navbar nav a,
+  #navbar nav .dropdown {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 12px 0;
+  }
+
+  #navbar nav .dropbtn {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 12px 0;
+    background-color: transparent;
+  }
+
+  #navbar nav .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: var(--secondary);
+  }
+
+  #navbar nav .dropdown:hover .dropdown-content,
+  #navbar nav .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .menu-toggle:checked~nav {
+    display: flex;
+  }
+
+  /* Hamburger animation */
+  .menu-toggle:checked~.hamburger-menu .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle:checked~.hamburger-menu .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked~.hamburger-menu .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 
   .hero-about {
@@ -1068,7 +1136,8 @@ footer {
   }
 
   .course-card {
-    width: 90%; /* Occupy more width on small screens */
+    width: 90%;
+    /* Occupy more width on small screens */
   }
 
   .results-section {
@@ -1094,7 +1163,8 @@ footer {
   }
 
   .club-container {
-    grid-template-columns: 1fr; /* Single column on small screens */
+    grid-template-columns: 1fr;
+    /* Single column on small screens */
   }
 
   .club-panel {
@@ -1104,6 +1174,18 @@ footer {
 
   .club-left h2 {
     font-size: 2rem;
+  }
+
+  .club-left h4 {
+    font-size: 16px;
+  }
+
+  .club-left p {
+    font-size: 14px;
+  }
+
+  .club-right img {
+    margin-top: 10px;
   }
 
   .what {
@@ -1121,8 +1203,10 @@ footer {
   }
 
   .dropdown-content {
-    width: auto; /* Adjust width automatically */
-    left: 15px; /* Align with the button */
+    width: auto;
+    /* Adjust width automatically */
+    left: 15px;
+    /* Align with the button */
     right: auto;
   }
 
@@ -1152,12 +1236,15 @@ footer {
 
   .reportcard {
     width: 90%;
-    height: auto; /* Allow height to adjust */
+    height: auto;
+    /* Allow height to adjust */
   }
 
   #reportbutton {
-    margin: 20px auto; /* Center button */
-    display: block; /* Make it a block element to take full width */
+    margin: 20px auto;
+    /* Center button */
+    display: block;
+    /* Make it a block element to take full width */
   }
 
   .study-material-section {
@@ -1254,6 +1341,7 @@ footer {
     margin-left: unset;
   }
 }
+
 /* facilities................................................................................................ */
 
 .facilities-section {
@@ -1274,7 +1362,7 @@ footer {
   margin-top: 30px;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -1314,5 +1402,13 @@ footer {
   .facility p {
     font-size: 1rem;
   }
+}/* Hide nav links by default on small screens */
+
+
+/* Hide nav links by default */
+
+/* Show nav links when checkbox is checked */
+#menu-toggle:checked ~ #nav-links {
+  display: flex;
+  flex-direction: column;
 }
-/* ......................................................................................................... */
