@@ -7,24 +7,24 @@ const PORT = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
-// API to get the latest announcement
+const filePath = path.join(__dirname, 'announcements.json');
+
+// GET all announcements
 app.get('/get-announcement', (req, res) => {
-  fs.readFile('announcements.json', 'utf-8', (err, data) => {
+  fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err || !data) {
       return res.json([]);
     }
-
     try {
       const announcements = JSON.parse(data);
-      res.json(announcements);
+      res.json(Array.isArray(announcements) ? announcements : []);
     } catch (e) {
       res.json([]);
     }
   });
 });
 
-// API to post a new announcement
-// API to post a new announcement
+// POST new announcement (append)
 app.post('/post-announcement', (req, res) => {
   const content = req.body.content;
   const newAnnouncement = {
@@ -32,7 +32,7 @@ app.post('/post-announcement', (req, res) => {
     time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
   };
 
-  fs.readFile('announcements.json', 'utf-8', (err, data) => {
+  fs.readFile(filePath, 'utf-8', (err, data) => {
     let announcements = [];
     if (!err && data) {
       try {
@@ -43,15 +43,14 @@ app.post('/post-announcement', (req, res) => {
       }
     }
 
-    announcements.unshift(newAnnouncement); // add to beginning
+    announcements.unshift(newAnnouncement); // newest on top
 
-    fs.writeFile('announcements.json', JSON.stringify(announcements, null, 2), err => {
-      if (err) return res.status(500).json({ error: 'Unable to write' });
+    fs.writeFile(filePath, JSON.stringify(announcements, null, 2), err => {
+      if (err) return res.status(500).json({ success: false });
       res.json({ success: true });
     });
   });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
