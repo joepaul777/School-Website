@@ -1587,7 +1587,7 @@ cards {
 }
 
 .facilities-section h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
   margin-bottom: 1.5rem;
   text-align: center;
   color: #1B3C53;
@@ -1595,20 +1595,26 @@ cards {
 
 .facility {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #ffffff;
   margin: 20px auto;
-  padding: 20px;
+  padding: clamp(1rem, 2vw, 2rem);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 1000px;
-  gap: 20px;
+  gap: clamp(1rem, 2vw, 2rem);
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.facility:hover {
+  transform: scale(1.01);
 }
 
 .facility img {
-  width: 250px;
-  height: 180px;
+  width: clamp(200px, 40%, 300px);
+  height: auto;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -1616,35 +1622,15 @@ cards {
 .facility h3 {
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem);
   color: #1B3C53;
 }
 
 .facility p {
   text-align: justify;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1rem);
   color: #333;
-}
-
-@media (min-width: 768px) {
-  .facility {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .facility img {
-    width: 40%;
-    margin-right: 2rem;
-  }
-
-  .facility h3 {
-    font-size: 1.5rem;
-  }
-
-  .facility p {
-    font-size: 1rem;
-  }
 }
 
 .facility div {
@@ -1653,6 +1639,20 @@ cards {
   flex-direction: column;
   justify-content: center;
 }
+
+@media (min-width: 768px) {
+  .facility {
+    flex-direction: row;
+  }
+
+  .facility img {
+    width: clamp(200px, 35%, 300px);
+    margin-right: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+
+/* ................................................................................................ */
 /* Show nav links when checkbox is checked */
 #menu-toggle:checked ~ #nav-links {
   display: flex;
