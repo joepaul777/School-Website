@@ -149,4 +149,8 @@ window.onclick = function(e) {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13ddcc68aa47930e140c65c1d3d1434a119127bc
 
