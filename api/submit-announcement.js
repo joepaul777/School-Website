@@ -1,28 +1,15 @@
-const fs = require('fs');
-const path = require('path');
+app.post('/submit-announcement', async (req, res) => {
+  const { content } = req.body;
+  const newAnn = new Announcement({
+    content,
+    time: new Date().toLocaleString()
+  });
 
-export default function handler(req, res) {
-  if (req.method === 'POST') {
-    const { content } = req.body;
-    const filePath = path.join(process.cwd(), 'announcement-data.json');
-
-    const announcement = {
-      text: content,
-      timestamp: new Date().toISOString(),
-    };
-
-    let existing = [];
-    if (fs.existsSync(filePath)) {
-      const raw = fs.readFileSync(filePath);
-      existing = JSON.parse(raw);
-    }
-
-    existing.push(announcement);
-
-    fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
-
-    res.status(200).json({ success: true });
-  } else {
-    res.status(405).json({ message: 'Method Not Allowed' });
+  try {
+    await newAnn.save();
+    res.json({ success: true, message: 'Announcement saved successfully!' });
+  } catch (err) {
+    console.error('Save error:', err);
+    res.status(500).json({ success: false, message: 'Database save failed' });
   }
-}
+});

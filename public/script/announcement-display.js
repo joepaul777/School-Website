@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-fetch('/api/get-announcement')
+fetch('/api/announcements')
   .then(res => res.json())
   .then(data => {
     // display announcements...
