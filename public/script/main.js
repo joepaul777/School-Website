@@ -116,5 +116,88 @@ const counterObserver = new IntersectionObserver(entries => {
 counters.forEach(counter => {
   counterObserver.observe(counter);
 });
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
+
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+      ? "block" : "none";
+  };
+
+  scrollBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  //hardcoded password
+    function checkPassword() {
+  const password = document.getElementById("passwordInput").value;
+  const correctPassword = "ghss2025"; // change this as needed
+
+  if (password === correctPassword) {
+    window.location.href = "announcement.html";
+  } else {
+    alert("Incorrect password. Please try again.");
+  }
+}
+
+
+//announcement
+const announcementForm = document.getElementById('announcementForm');
+const announcementInput = document.getElementById('announcementInput');
+
+const channel = new BroadcastChannel('announcement_channel');
+
+announcementForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const text = announcementInput.value.trim();
+  if (text === '') return;
+
+  const now = new Date();
+  const dateTime = now.toLocaleString();
+
+  // Save to localStorage
+  localStorage.setItem('announcementText', text);
+  localStorage.setItem('announcementTime', dateTime);
+
+  // Send via BroadcastChannel
+  channel.postMessage({
+    text,
+    time: dateTime
+  });
+
+  // Optional: Redirect
+  window.location.href = 'announcedisplay.html';
+});
+
+const textElem = document.getElementById('announcementText');
+const timeElem = document.getElementById('announcementTime');
+
+function updateDisplay(text, time) {
+  textElem.textContent = text || 'No announcement found.';
+  timeElem.textContent = time || '';
+}
+
+// Initial load
+updateDisplay(
+  localStorage.getItem('announcementText'),
+  localStorage.getItem('announcementTime')
+);
+
+// Listen for updates from other page
+const message = new BroadcastChannel('announcement_message');
+message.onmessage = (event) => {
+  const { text, time } = event.data;
+  updateDisplay(text, time);
+};
+
 
 
