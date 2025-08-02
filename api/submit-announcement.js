@@ -1,26 +1,27 @@
-import { MongoClient } from 'mongodb';
+document.getElementById('announcement-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const content = document.getElementById('content').value;
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+  try {
+    const response = await fetch('/api/submit-announcement', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content })
+    });
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { content } = req.body;
+    const result = await response.json();
 
-    try {
-      await client.connect();
-      const db = client.db('myAnnouncementDB');
-      const collection = db.collection('announcements');
-
-      await collection.insertOne({ text: content, timestamp: new Date() });
-      res.status(200).json({ success: true, message: 'Announcement saved successfully!' });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ success: false, message: 'Failed to save announcement' });
-    } finally {
-      await client.close();
+    const messageEl = document.getElementById('response');
+    if (result.success) {
+      messageEl.textContent = result.message;
+      document.getElementById('announcement-form').reset();
+    } else {
+      messageEl.textContent = result.message;
     }
-  } else {
-    res.status(405).send('Method Not Allowed');
+  } catch (err) {
+    console.error(err);
+    document.getElementById('response').textContent = 'Error submitting announcement.';
   }
-}
+});

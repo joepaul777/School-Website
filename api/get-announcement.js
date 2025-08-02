@@ -1,24 +1,38 @@
-import { MongoClient } from 'mongodb';
+document.addEventListener('DOMContentLoaded', () => {
+  const announcementList = document.getElementById('announcement-list');
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+  fetch('/api/get-announcement')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch announcements');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) {
+        announcementList.innerHTML = '<li>No announcements yet.</li>';
+        return;
+      }
 
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    try {
-      await client.connect();
-      const db = client.db('myAnnouncementDB');
-      const collection = db.collection('announcements');
-      const data = await collection.find().sort({ timestamp: -1 }).toArray();
-      res.status(200).json(data);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Error reading from database');
-    } finally {
-      await client.close();
-    }
-  } else {
-    res.status(405).send('Method Not Allowed');
-  }
-}
+      announcementList.innerHTML = ''; // Clear default message
 
+      data.forEach(item => {
+        const li = document.createElement('li');
+        const content = document.createElement('div');
+        content.textContent = item.text;
+
+        const time = document.createElement('time');
+        const dateObj = new Date(item.timestamp);
+        time.textContent = dateObj.toLocaleString();
+
+        li.appendChild(content);
+        li.appendChild(time);
+
+        announcementList.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      announcementList.innerHTML = '<li>Error loading announcements.</li>';
+    });
+});
