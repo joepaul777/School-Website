@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const announcementList = document.getElementById('announcement-list');
 
-  fetch('/api/get-announcement')
+  fetch('api/get-announcement')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch announcements');
