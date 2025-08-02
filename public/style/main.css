@@ -275,6 +275,7 @@ iframe {
   padding: 60px 20px;
   text-align: center;
   border-top: 2px solid var(--accent);
+  border-bottom: 2px var(--accent);
 }
 
 .results-section h2 {
@@ -295,7 +296,7 @@ iframe {
   padding: 25px 20px;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  width: 30%;
+  max-width: 40%;
   flex: 1 1 250px;
   text-align: left;
   transition: transform 0.3s ease;
@@ -933,14 +934,16 @@ footer {
 
 .achievements-section {
   background-color: var(--light-bg);
-  padding: 40px 20px;
+  padding: 20px 20px;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .achievements-section h2 {
   font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  
 }
 
 .achievements-container {
@@ -955,7 +958,8 @@ footer {
   flex-direction: column;
   align-items: center;
   width: 150px;
-  margin: 10px 0;
+  margin: 0px 0;
+  padding-top: 0;
 }
 
 .achievement-item .counter {
@@ -1358,6 +1362,7 @@ footer {
 
   .courses-section {
     padding: 40px 15px;
+    margin-top: 20px var(--accent);
   }
 
   .course-container {
@@ -1380,7 +1385,7 @@ footer {
   }
 
   .result-card {
-    width: 90%;
+    width: 60%;
   }
 
   .faculty-container {
