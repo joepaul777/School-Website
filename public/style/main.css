@@ -25,6 +25,7 @@ html{
 }
 body {
   margin: 0;
+
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, #000000, #1B3C53);
   color: var(--primary);
@@ -1666,4 +1667,36 @@ cards {
     margin-left: unset;
   }
 }
+#scrollDownBtn {
+    display: none;
+    position: fixed;
+    bottom: 100px; /* Adjust position to be above the scroll-top button */
+    right: 30px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s, transform 0.3s;
+}
 
+#scrollDownBtn:hover {
+    background-color: #668eac;
+    transform: translateY(-3px);
+}
+
+/* Media query to adjust position on smaller screens */
+@media (max-width: 480px) {
+    #scrollDownBtn {
+        bottom: 100px;
+        right: 30Spx;
+    }
+}

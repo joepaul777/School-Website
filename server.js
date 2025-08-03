@@ -1,13 +1,18 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-app.use(express.static('public'));
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const filePath = path.join(__dirname, 'announcements.json');
+// Serve HTML pages
+app.get('/announcement', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'announcement.html'));
+});
 
 app.get('/announcement-display', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'announcement-display.html'));

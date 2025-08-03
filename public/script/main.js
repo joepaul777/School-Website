@@ -147,7 +147,41 @@ window.onclick = function(e) {
     alert("Incorrect password. Please try again.");
   }
 }
+// Get the scroll down button
+const scrollDownBtn = document.getElementById("scrollDownBtn");
 
+// Get all sections to determine the next one
+const sections = document.querySelectorAll('section, footer');
 
+// Function to find the next section to scroll to
+function getNextSection() {
+    const currentScrollY = window.scrollY;
+    for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop > currentScrollY + 50) { // 50px offset to avoid snapping to current section
+            return sections[i];
+        }
+    }
+    return null; // Return null if there are no more sections
+}
 
+// Add event listener for the scroll down button
+scrollDownBtn.onclick = function () {
+    const nextSection = getNextSection();
+    if (nextSection) {
+        window.scrollTo({
+            top: nextSection.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+};
+
+// Modify the window.onscroll function to also handle the scroll down button's visibility
+window.onscroll = function () {
+    // Show/hide scroll to top button
+    scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+
+    // Show/hide scroll to down button
+    const nextSection = getNextSection();
+    scrollDownBtn.style.display = nextSection ? "block" : "none";
+};
 
