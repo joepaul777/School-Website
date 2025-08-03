@@ -1,159 +1,187 @@
-    // Fade-in effect
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+// Get all global elements at the top of the script
+const navbar = document.getElementById("navbar");
+const scrollBtn = document.getElementById("scrollTopBtn");
+const scrollDownBtn = document.getElementById("scrollDownBtn");
+const sections = document.querySelectorAll('section, footer');
+const counters = document.querySelectorAll('.counter');
+
+// Fade-in effect
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+            entry.target.classList.add('show');
         }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.hero-about').forEach(section => {
-      observer.observe(section);
     });
+}, { threshold: 0.2 });
 
-    // Typing animation
-    const text = "Empowering the next generation through quality education and values.";
-    const target = document.getElementById('typing-text');
-    let i = 0;
+document.querySelectorAll('.hero-about').forEach(section => {
+    observer.observe(section);
+});
 
-    function typeWriter() {
-      if (i < text.length) {
+// Typing animation
+const text = "Empowering the next generation through quality education and values.";
+const target = document.getElementById('typing-text');
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
         target.textContent = text.substring(0, i + 1) + '|';
         i++;
         setTimeout(typeWriter, 30);
-      } else {
-        target.textContent = text;
-      }
-    }
-
-    window.onload = () => {
-      typeWriter();
-    };
-     let lastScrollY = window.scrollY;
-  const navbar = document.getElementById("navbar");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > lastScrollY) {
-
-      navbar.style.top = "-100px";
     } else {
-  
-      navbar.style.top = "0"; 
+        target.textContent = text;
+    }
+}
+
+window.onload = () => {
+    typeWriter();
+};
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+        navbar.style.top = "-100px";
+    } else {
+        navbar.style.top = "0";
     }
     lastScrollY = window.scrollY;
-  });
+});
 
-  /*------Google_Translate------*/
-   function changeToMalayalam() {
+/*------Google_Translate------*/
+function changeToMalayalam() {
     const lang = 'ml'; // Malayalam
-
-    // Set the cookie that Google Translate reads
     document.cookie = `googtrans=/en/${lang};path=/`;
-
-    // Reload the page so the cookie takes effect
     location.reload();
-  }
-  document.getElementById('translateButton').addEventListener('click', function () {
+}
+
+document.getElementById('translateButton').addEventListener('click', function() {
     const iframe = document.querySelector('iframe.goog-te-menu-frame');
     if (iframe) {
-      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-      const malayalamOption = innerDoc.querySelector("span[textContent='Malayalam']");
-      
-      if (malayalamOption) {
-        malayalamOption.click();
-      } else {
-        // fallback: simulate selecting Malayalam via menu
-        const options = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
-        options.forEach(function (option) {
-          if (option.innerText === 'Malayalam') {
-            option.click();
-          }
-        });
-      }
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const malayalamOption = innerDoc.querySelector("span[textContent='Malayalam']");
+        if (malayalamOption) {
+            malayalamOption.click();
+        } else {
+            const options = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+            options.forEach(function(option) {
+                if (option.innerText === 'Malayalam') {
+                    option.click();
+                }
+            });
+        }
     } else {
-      alert("Please wait while the translation loads...");
+        alert("Please wait while the translation loads...");
     }
-  });
- 
-const counters = document.querySelectorAll('.counter');
-const duration = 2000; // All counters complete in 2 seconds
+});
+
+// Counter animation
+const duration = 2000;
 
 function animateCounter(counter) {
-  const targetAttr = counter.getAttribute('data-target');
-  const isPercent = targetAttr.includes('%');
-  const target = parseInt(targetAttr);
-  let current = 0;
+    const targetAttr = counter.getAttribute('data-target');
+    const isPercent = targetAttr.includes('%');
+    const target = parseInt(targetAttr);
+    let current = 0;
+    const startTime = performance.now();
 
-  const startTime = performance.now();
-
-  function updateCounter(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const value = Math.floor(progress * target);
-
-    counter.innerText = isPercent ? value + '%' : value;
-
-    if (progress < 1) {
-      requestAnimationFrame(updateCounter);
-    } else {
-      counter.innerText = isPercent ? target + '%' : target;
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+        counter.innerText = isPercent ? value + '%' : value;
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            counter.innerText = isPercent ? target + '%' : target;
+        }
     }
-  }
-
-  requestAnimationFrame(updateCounter);
+    requestAnimationFrame(updateCounter);
 }
 
 const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-      entry.target.classList.add('counted');
-      animateCounter(entry.target);
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            entry.target.classList.add('counted');
+            animateCounter(entry.target);
+        }
+    });
 }, { threshold: 0.3 });
 
-// Observe each counter individually
 counters.forEach(counter => {
-  counterObserver.observe(counter);
+    counterObserver.observe(counter);
 });
+
+// Dropdown click handler
 window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove('show');
+    if (!e.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].classList.remove('show');
+        }
     }
-  }
 }
 
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  window.onscroll = function () {
-    scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
-      ? "block" : "none";
-  };
-
-  scrollBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  //hardcoded password
-    function checkPassword() {
-  const password = document.getElementById("passwordInput").value;
-  const correctPassword = "1"; // change this as needed
-
-  if (password === correctPassword) {
-    window.location.href = "announcement.html";
-  } else {
-    alert("Incorrect password. Please try again.");
-  }
+// Function to find the next section to scroll to
+function getNextSection() {
+    const currentScrollY = window.scrollY;
+    for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop > currentScrollY + 50) {
+            return sections[i];
+        }
+    }
+    return null;
 }
 
-fetch('/api/submit-announcement', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ content: input.value }),
-})
+// Global scroll event handler
+window.addEventListener('scroll', function() {
+    // Show/hide scroll to top button
+    scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
 
+    // Show/hide scroll to down button
+    if (scrollDownBtn) {
+        const nextSection = getNextSection();
+        scrollDownBtn.style.display = nextSection ? "block" : "none";
+    }
+});
 
+// Scroll to top functionality
+if (scrollBtn) {
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+}
 
+// Scroll down functionality
+if (scrollDownBtn) {
+    scrollDownBtn.addEventListener("click", function() {
+        const nextSection = getNextSection();
+        if (nextSection) {
+            window.scrollTo({
+                top: nextSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
 
+// Hardcoded password
+function checkPassword() {
+    const password = document.getElementById("passwordInput").value;
+    const correctPassword = "1"; // change this as needed
+    if (password === correctPassword) {
+        window.location.href = "announcement.html";
+    } else {
+        alert("Incorrect password. Please try again.");
+    }
+}
+
+// Placeholder for fetch call (ensure this isn't executed on page load)
+// fetch('/api/submit-announcement', {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({ content: input.value }),
+// });
