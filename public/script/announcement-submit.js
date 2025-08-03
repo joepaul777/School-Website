@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('api/submit-announcement', {
+      const response = await fetch('/api/submit-announcement', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: input.value })
