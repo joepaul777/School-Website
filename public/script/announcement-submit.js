@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('announcement-form');
-  const input = document.getElementById('content');
-  const message = document.getElementById('response');
+  const input = document.getElementById('announcementInput');
+  const message = document.getElementById('save-message');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
