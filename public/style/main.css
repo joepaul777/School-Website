@@ -1668,7 +1668,7 @@ cards {
   }
 }
 #scrollDownBtn {
-    display: none;
+    
     position: fixed;
     bottom: 100px; /* Adjust position to be above the scroll-top button */
     right: 30px;
@@ -1696,7 +1696,7 @@ cards {
 /* Media query to adjust position on smaller screens */
 @media (max-width: 480px) {
     #scrollDownBtn {
-        bottom: 100px;
-        right: 30Spx;
+        bottom: 90px;
+        right: 30spx;
     }
 }
