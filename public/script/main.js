@@ -139,7 +139,7 @@ window.onclick = function(e) {
   //hardcoded password
     function checkPassword() {
   const password = document.getElementById("passwordInput").value;
-  const correctPassword = "ghss2025"; // change this as needed
+  const correctPassword = "1"; // change this as needed
 
   if (password === correctPassword) {
     window.location.href = "announcement.html";
@@ -150,8 +150,12 @@ window.onclick = function(e) {
 // Get the scroll down button
 const scrollDownBtn = document.getElementById("scrollDownBtn");
 
-// Get all sections to determine the next one
-const sections = document.querySelectorAll('section, footer');
+fetch('/api/submit-announcement', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ content: input.value }),
+})
+
 
 // Function to find the next section to scroll to
 function getNextSection() {
