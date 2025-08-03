@@ -1,9 +1,12 @@
 import { MongoClient } from 'mongodb';
 
+
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 const dbName = 'myAnnouncementDB';
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
