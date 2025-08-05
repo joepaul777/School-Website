@@ -275,32 +275,32 @@ iframe {
 
 .results-section {
   background-color: var(--white);
-  padding: 60px 20px;
+  padding: clamp(40px, 5vw, 60px) clamp(10px, 5vw, 20px);
   text-align: center;
   border-top: 2px solid var(--accent);
-  border-bottom: 2px var(--accent);
+  border-bottom: 2px solid var(--accent); /* fixed missing 'solid' */
 }
 
 .results-section h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   color: var(--primary);
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 4vw, 40px);
 }
 
 .results-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: clamp(10px, 3vw, 20px);
 }
 
 .result-card {
   background-color: var(--light-bg);
-  padding: 25px 20px;
-  border-radius: 12px;
+  padding: clamp(15px, 3vw, 25px) clamp(12px, 4vw, 20px);
+  border-radius: clamp(8px, 1.5vw, 12px);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  max-width: 40%;
-  flex: 1 1 250px;
+  max-width: clamp(300px, 40%, 500px);
+  flex: 1 1 clamp(250px, 35%, 400px);
   text-align: left;
   transition: transform 0.3s ease;
 }
@@ -311,21 +311,21 @@ iframe {
 
 .result-card h3 {
   color: var(--secondary);
-  margin-bottom: 12px;
-  font-size: 20px;
+  margin-bottom: clamp(8px, 2vw, 12px);
+  font-size: clamp(16px, 2.5vw, 20px);
   text-align: center;
 }
 
 .result-card ul,
 .result-card ol {
-  padding-left: 18px;
-  font-size: 15px;
+  padding-left: clamp(12px, 2vw, 18px);
+  font-size: clamp(13px, 2vw, 15px);
   color: var(--primary);
   margin: 0;
 }
 
 .result-card li {
-  margin-bottom: 6px;
+  margin-bottom: clamp(4px, 1vw, 6px);
 }
 
 .what {

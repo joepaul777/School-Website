@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         announcementList.innerHTML = '<li>No announcements yet.</li>';
         return;
       }
-
+      
       // Display each announcement
       data.reverse().forEach(item => {
         const li = document.createElement('li');
