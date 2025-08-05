@@ -171,17 +171,10 @@ if (scrollDownBtn) {
 // Hardcoded password
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
-    const correctPassword = "1"; // change this as needed
+    const correctPassword = "kallan"; // change this as needed
     if (password === correctPassword) {
         window.location.href = "announcement.html";
     } else {
         alert("Incorrect password. Please try again.");
     }
 }
-
-// Placeholder for fetch call (ensure this isn't executed on page load)
-// fetch('/api/submit-announcement', {
-//   method: 'POST',
-//   headers: { 'Content-Type': 'application/json' },
-//   body: JSON.stringify({ content: input.value }),
-// });
