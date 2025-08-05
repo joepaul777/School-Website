@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const topThree = data.slice(0, 3);
+      const topThree = data.slice(0, 2);
       topThree.forEach(item => {
         const li = document.createElement('li');
         const content = document.createElement('div');
