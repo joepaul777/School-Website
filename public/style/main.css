@@ -481,6 +481,7 @@ footer {
   flex: 1;
   color: #1B3C53;
   min-width: 300px;
+  text-align: justify;
 }
 
 .club-left h2 {
@@ -493,6 +494,7 @@ footer {
   color: #456882;
   font-weight: 600;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .club-left p {
