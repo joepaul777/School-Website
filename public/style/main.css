@@ -175,6 +175,7 @@ nav a:hover {
 .show {
   opacity: 1;
   transform: translateY(0);
+  display: block;
 }
 
 .info-section {
@@ -338,13 +339,13 @@ iframe {
 }
 
 .faculty-section {
-  padding: 40px 20px;
+  padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
   text-align: center;
 }
 
 .faculty-section h2 {
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Scales from 24px to 40px */
+  margin-bottom: clamp(20px, 4vw, 30px);
   color: var(--primary);
   /* Changed to --primary as --medium-blue is not defined */
   font-family: 'Poppins', sans-serif;
@@ -354,12 +355,12 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: clamp(15px, 4vw, 30px); /* Scales the gap between cards */
 }
 
 .faculty-card {
   background-color: rgba(255, 255, 255, 0.95);
-  width: 260px;
+  width: 260px; /* You might want to consider making this responsive as well, e.g., max-width */
   border-radius: 16px;
   padding: 25px 20px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
@@ -375,7 +376,7 @@ iframe {
 }
 
 .faculty-card h3 {
-  font-size: 20px;
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* Scales from 16px to 20px */
   margin-bottom: 6px;
   color: var(--primary);
   /* Changed to --primary as --dark-blue is not defined */
@@ -383,16 +384,15 @@ iframe {
 }
 
 .faculty-card .designation {
-  font-size: 14px;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Scales from 12px to 14px */
   color: #444;
   margin-bottom: 8px;
 }
 
 .faculty-card .department {
-  font-size: 13px;
+  font-size: clamp(0.75rem, 1.4vw, 0.8125rem); /* Scales from 12px to 13px */
   color: var(--accent);
 }
-
 footer {
   background-color: var(--primary);
   color: var(--accent);
@@ -600,9 +600,6 @@ footer {
   color: var(--secondary);
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 .dropdown:focus {
   outline: none;
@@ -1365,7 +1362,7 @@ footer {
     margin-bottom: 0 !important;
   }
 
-  #navbar .home h1 {
+  #navbar .home h1 s{
     font-size: 22px;
     margin-bottom: 0;
   }

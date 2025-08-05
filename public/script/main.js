@@ -113,14 +113,7 @@ counters.forEach(counter => {
 });
 
 // Dropdown click handler
-window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].classList.remove('show');
-        }
-    }
-}
+
 
 // Function to find the next section to scroll to
 function getNextSection() {
@@ -185,3 +178,78 @@ function checkPassword() {
 //   headers: { 'Content-Type': 'application/json' },
 //   body: JSON.stringify({ content: input.value }),
 // });
+/* This function is called when the "Materials" button is clicked. */
+/* --- Dropdown and Mobile Menu Logic --- */
+
+// The primary function to toggle the dropdown
+function toggleDropdown() {
+  const dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+}
+
+// Function to close all dropdowns
+function closeAllDropdowns() {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+    }
+}
+/* --- Dropdown and Mobile Menu Logic --- */
+
+// The primary function to toggle the dropdown's visibility.
+// This is triggered by the 'onclick' attribute on the button.
+// --- Dropdown and Mobile Menu Logic ---
+
+// The primary function to toggle the dropdown's visibility.
+// This is triggered by the 'onclick' attribute on the button.
+function toggleDropdown() {
+    const dropdownContent = document.getElementById("myDropdown");
+    if (dropdownContent) {
+        dropdownContent.classList.toggle("show");
+    }
+}
+
+// A helper function to close all dropdowns.
+function closeAllDropdowns() {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+        const openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+    }
+}
+
+// This event listener closes the dropdown when a user clicks anywhere on the page
+// *unless* the click is inside the dropdown itself.
+window.addEventListener('click', function(event) {
+    if (!event.target.closest('.dropdown')) {
+        closeAllDropdowns();
+    }
+});
+
+// Optional: Add an event listener to the menu toggle checkbox
+// This ensures the dropdown closes if the main mobile menu is closed
+const menuToggle = document.getElementById('menu-toggle');
+if (menuToggle) {
+    menuToggle.addEventListener('change', function() {
+        if (!this.checked) {
+            closeAllDropdowns();
+        }
+    });
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+};
+// --- End Dropdown Logic ---
