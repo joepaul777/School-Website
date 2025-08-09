@@ -566,7 +566,9 @@ footer {
 .dropdown:focus-within .dropbtn {
   color: var(--white);
 }
-
+.dropdown-content.show {
+  display: block;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -599,7 +601,9 @@ footer {
 .dropdown-content a:hover {
   color: var(--secondary);
 }
-
+.dropdown.show .dropdown-content {
+  display: block;
+}
 
 .dropdown:focus {
   outline: none;
@@ -764,6 +768,7 @@ footer {
   padding: 60px 20px;
   text-align: center;
   margin: 100px 60px;
+  border-bottom: 2px solida var(--accent);
   border-radius: 30px;
 }
 
@@ -935,7 +940,8 @@ footer {
 }
 
 .achievements-section {
-  background-color: var(--light-bg);
+  background-color: var(--white);
+  border-top: 2px var(--accent);
   padding: 20px 20px;
   text-align: center;
   padding-bottom: 50px;
