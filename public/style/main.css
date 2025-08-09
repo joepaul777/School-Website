@@ -1405,11 +1405,8 @@ footer {
   #navbar nav .dropbtn {
     width: 100%;
     text-align: center;
-    margin: 0;
-    padding-top: 6px;
-    /* Reduced padding */
-    padding-bottom: 6px;
-    background-color: transparent;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
   }
 
   #navbar nav .dropdown-content {
@@ -1418,7 +1415,7 @@ footer {
     width: 100%;
     box-shadow: none;
     border-radius: 0;
-    background-color: var(--secondary);
+
   }
 
   #navbar nav .dropdown:hover .dropdown-content,
