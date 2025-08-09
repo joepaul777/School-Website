@@ -1427,6 +1427,7 @@ footer {
   }
 
   .hamburger-menu {
+    margin-top: -2%;
     display: flex;
   }
 
