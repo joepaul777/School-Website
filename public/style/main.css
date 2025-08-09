@@ -1280,6 +1280,12 @@ footer {
 #menu-toggle:checked ~ #nav-links {
   display: flex;
   flex-direction: column;
+  width: 50vw;
+  margin-left: 50%;
+  margin-top: -3%;
+ padding-bottom: 0;
+
+  
 }
 
 #scrollTopBtn {
@@ -1384,8 +1390,8 @@ footer {
     top: 60px;
     left: 0;
     background-color: var(--primary);
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+   
   }
 
   #navbar nav a,
