@@ -164,7 +164,7 @@ if (scrollDownBtn) {
 // Hardcoded password
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
-    const correctPassword = "1"; // change this as needed
+    const correctPassword = "kallan"; // change this as needed
     if (password === correctPassword) {
         window.location.href = "announcement.html";
     } else {

@@ -37,6 +37,7 @@
         <a href="class12.html">Class 12</a>
       </div>
     </div>
+    <a href="announcement-display.html">Announcements</a>
     <a href="gallery.html" id="sel">Gallery</a>
       <a href="report.html" >Report</a>
       <a href="contact.html">Contact</a>
@@ -92,8 +93,9 @@
   <img id="lightbox-img" src="">
   <span class="arrow right" onclick="nextImage(event)">&#10095;</span>
 </div>
-
-
+ <footer>
+    &copy; 2025 SNGCE CSE Department. All rights reserved.
+  </footer>
  <script>
   const images = document.querySelectorAll(".scattered-photo");
   const lightbox = document.getElementById("lightbox");
@@ -123,46 +125,6 @@
   }
 </script>
 
- <footer>
-    &copy; 2025 GHSS Kadayiruppu All rights reserved.
-  </footer>
-<button id="translateButton" onclick="translateToMalayalam()" >
-  മലയാളം
-</button>
-
-<!-- Google Translate Widget (Hidden) -->
-<div id="google_translate_element" style="display: none;"></div>
-
-<!-- Google Translate Script -->
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'ml',
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-  function translateToMalayalam() {
-    const tryTranslate = () => {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = 'ml'; // Malayalam
-        select.dispatchEvent(new Event('change'));
-        return true;
-      }
-      return false;
-    };
-
-    let attempts = 0;
-    const maxAttempts = 10;
-    const interval = setInterval(() => {
-      attempts++;
-      if (tryTranslate() || attempts > maxAttempts) {
-        clearInterval(interval);
-      }
-    }, 300);
-  }
-</script>
 <script src="script/main.js"></script>
 </body>
 </html>
