@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const deleteBtn = document.createElement('button');
           deleteBtn.textContent = 'Delete';
-          deleteBtn.style.marginLeft = '10px';
+          deleteBtn.classList.add('delete-btn'); // use CSS class
           deleteBtn.onclick = () => deleteAnnouncement(item._id);
+
 
           li.appendChild(deleteBtn);
           announcementList.appendChild(li);

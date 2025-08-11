@@ -1152,6 +1152,27 @@ footer {
 .announce-button:hover {
   background-color: #004480;
 }
+.delete-btn {
+  background-color: #e74c3c; /* red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b; /* darker red on hover */
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  background-color: #a93226;
+  transform: scale(0.98);
+}
+
 
 .display-wrapper {
   display: flex;
