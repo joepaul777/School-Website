@@ -186,6 +186,10 @@ function toggleDropdown() {
   const dropdown = document.getElementById("myDropdown");
   dropdown.classList.toggle("show");
 }
+function toggleDropdown() {
+  const dropdown = document.querySelector('.dropdown');
+  dropdown.classList.toggle('show');
+}
 
 // Function to close all dropdowns
 function closeAllDropdowns() {
@@ -252,4 +256,25 @@ window.onclick = function(event) {
     }
   }
 };
+// Toggle mobile nav
+function toggleMenu() {
+  const nav = document.querySelector('.navbar-links');
+  nav.classList.toggle('active');
+}
+
+// Toggle dropdown
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close dropdown if clicked outside (optional)
+window.onclick = function (e) {
+  if (!e.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
+
 // --- End Dropdown Logic ---

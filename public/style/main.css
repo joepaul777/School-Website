@@ -568,7 +568,9 @@ footer {
 .dropdown:focus-within .dropbtn {
   color: var(--white);
 }
-
+.dropdown-content.show {
+  display: block;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -601,7 +603,9 @@ footer {
 .dropdown-content a:hover {
   color: var(--secondary);
 }
-
+.dropdown.show .dropdown-content {
+  display: block;
+}
 
 .dropdown:focus {
   outline: none;
@@ -766,6 +770,7 @@ footer {
   padding: 60px 20px;
   text-align: center;
   margin: 100px 60px;
+  border-bottom: 2px solida var(--accent);
   border-radius: 30px;
 }
 
@@ -937,7 +942,8 @@ footer {
 }
 
 .achievements-section {
-  background-color: var(--light-bg);
+  background-color: var(--white);
+  border-top: 2px var(--accent);
   padding: 20px 20px;
   text-align: center;
   padding-bottom: 50px;
@@ -1274,6 +1280,12 @@ footer {
 #menu-toggle:checked ~ #nav-links {
   display: flex;
   flex-direction: column;
+  width: 50vw;
+  margin-left: 50%;
+  margin-top: -3%;
+ padding-bottom: 0;
+
+  
 }
 
 #scrollTopBtn {
@@ -1378,8 +1390,8 @@ footer {
     top: 60px;
     left: 0;
     background-color: var(--primary);
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+   
   }
 
   #navbar nav a,
@@ -1393,11 +1405,8 @@ footer {
   #navbar nav .dropbtn {
     width: 100%;
     text-align: center;
-    margin: 0;
-    padding-top: 6px;
-    /* Reduced padding */
-    padding-bottom: 6px;
-    background-color: transparent;
+    margin: 0 0 0 0;
+    padding: 0 0 0 15px;
   }
 
   #navbar nav .dropdown-content {
@@ -1406,7 +1415,7 @@ footer {
     width: 100%;
     box-shadow: none;
     border-radius: 0;
-    background-color: var(--secondary);
+
   }
 
   #navbar nav .dropdown:hover .dropdown-content,
@@ -1415,6 +1424,7 @@ footer {
   }
 
   .hamburger-menu {
+    margin-top: -1.5%;
     display: flex;
   }
 
