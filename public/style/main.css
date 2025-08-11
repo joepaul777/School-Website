@@ -1153,12 +1153,13 @@ footer {
   background-color: #004480;
 }
 /* Announcement Card Container */
-/* Announcement list container */
 #announcement-list {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* center all cards */
+  margin-top: clamp(10px, 2vw, 20px);
+  max-width: clamp(280px, 80%, 600px); /* Center tab width */
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none; /* Remove default bullets */
+  padding: 0;
 }
 
 /* Single Card */
@@ -1170,21 +1171,16 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(8px, 1.5vw, 16px);
-
-  /* New responsive width */
-  width: clamp(250px, 80%, 900px);
-
-  /* Better shadow for depth */
-  box-shadow: 
+    box-shadow: 
     0 clamp(2px, 0.4vw, 4px) clamp(8px, 1.2vw, 12px) rgba(0, 0, 0, 0.12),
     0 clamp(4px, 0.6vw, 6px) clamp(14px, 1.5vw, 20px) rgba(0, 0, 0, 0.08);
+  gap: clamp(8px, 1.5vw, 16px);
 }
 
 /* Announcement Text */
 .announcement-text {
   flex: 1;
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
   color: #333;
 }
 
@@ -1193,16 +1189,18 @@ footer {
   background-color: #e63946;
   color: #fff;
   border: none;
-  padding: clamp(5px, 1vw, 8px) clamp(10px, 1.5vw, 14px);
-  border-radius: 4px;
+  padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 14px);
+  border-radius: clamp(3px, 0.7vw, 6px);
   cursor: pointer;
-  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
   transition: background-color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .delete-btn:hover {
   background-color: #c62828;
 }
+
 
 
 .display-wrapper {
