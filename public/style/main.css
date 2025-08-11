@@ -1171,7 +1171,9 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 clamp(1px, 0.3vw, 3px) clamp(6px, 1vw, 10px) rgba(0, 0, 0, 0.1);
+    box-shadow: 
+    0 clamp(2px, 0.4vw, 4px) clamp(8px, 1.2vw, 12px) rgba(0, 0, 0, 0.12),
+    0 clamp(4px, 0.6vw, 6px) clamp(14px, 1.5vw, 20px) rgba(0, 0, 0, 0.08);
   gap: clamp(8px, 1.5vw, 16px);
 }
 
