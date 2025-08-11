@@ -1172,6 +1172,47 @@ footer {
   background-color: #a93226;
   transform: scale(0.98);
 }
+/* Announcement Card Container */
+#announcement-list {
+  margin-top: 15px;
+}
+
+/* Single Card */
+.announcement-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Announcement Text */
+.announcement-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
 
 
 .display-wrapper {

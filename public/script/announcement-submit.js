@@ -5,34 +5,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const announcementList = document.getElementById('announcement-list');
 
   // Load announcements from database
-  function loadAnnouncements() {
-    fetch('/api/get-announcement')
-      .then(res => res.json())
-      .then(data => {
-        announcementList.innerHTML = '';
-        if (!Array.isArray(data) || data.length === 0) {
-          announcementList.innerHTML = '<li>No announcements yet.</li>';
-          return;
-        }
+  // Load announcements from database
+function loadAnnouncements() {
+  fetch('/api/get-announcement')
+    .then(res => res.json())
+    .then(data => {
+      announcementList.innerHTML = '';
+      if (!Array.isArray(data) || data.length === 0) {
+        announcementList.innerHTML = '<p>No announcements yet.</p>';
+        return;
+      }
 
-        data.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item.text;
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('announcement-card');
 
-          const deleteBtn = document.createElement('button');
-          deleteBtn.textContent = 'Delete';
-          deleteBtn.classList.add('delete-btn'); // use CSS class
-          deleteBtn.onclick = () => deleteAnnouncement(item._id);
+        const textDiv = document.createElement('div');
+        textDiv.classList.add('announcement-text');
+        textDiv.textContent = item.text;
 
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.onclick = () => deleteAnnouncement(item._id);
 
-          li.appendChild(deleteBtn);
-          announcementList.appendChild(li);
-        });
-      })
-      .catch(err => {
-        console.error('Error loading announcements:', err);
+        card.appendChild(textDiv);
+        card.appendChild(deleteBtn);
+
+        announcementList.appendChild(card);
       });
-  }
+    })
+    .catch(err => {
+      console.error('Error loading announcements:', err);
+    });
+}
+
 
   // Delete an announcement
   function deleteAnnouncement(id) {
