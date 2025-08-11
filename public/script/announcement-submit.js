@@ -4,42 +4,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const message = document.getElementById('save-message');
   const announcementList = document.getElementById('announcement-list');
 
-  // Load announcements from database
-  // Load announcements from database
-function loadAnnouncements() {
-  fetch('/api/get-announcement')
-    .then(res => res.json())
-    .then(data => {
-      announcementList.innerHTML = '';
-      if (!Array.isArray(data) || data.length === 0) {
-        announcementList.innerHTML = '<p>No announcements yet.</p>';
-        return;
-      }
+  // Render announcements from given data
+  function renderAnnouncements(data) {
+    announcementList.innerHTML = '';
+    if (!Array.isArray(data) || data.length === 0) {
+      announcementList.innerHTML = '<li>No announcements yet.</li>';
+      return;
+    }
 
-      data.forEach(item => {
-        const card = document.createElement('div');
-        card.classList.add('announcement-card');
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.classList.add('announcement-card');
 
-        const textDiv = document.createElement('div');
-        textDiv.classList.add('announcement-text');
-        textDiv.textContent = item.text;
+      const textDiv = document.createElement('div');
+      textDiv.classList.add('announcement-text');
+      textDiv.textContent = item.text;
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.classList.add('delete-btn');
-        deleteBtn.onclick = () => deleteAnnouncement(item._id);
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.classList.add('delete-btn');
+      deleteBtn.onclick = () => deleteAnnouncement(item._id);
 
-        card.appendChild(textDiv);
-        card.appendChild(deleteBtn);
-
-        announcementList.appendChild(card);
-      });
-    })
-    .catch(err => {
-      console.error('Error loading announcements:', err);
+      li.appendChild(textDiv);
+      li.appendChild(deleteBtn);
+      announcementList.appendChild(li);
     });
-}
+  }
 
+  // Load announcements from cache first
+  function loadFromCache() {
+    const cachedData = localStorage.getItem('announcements');
+    if (cachedData) {
+      try {
+        renderAnnouncements(JSON.parse(cachedData));
+      } catch (e) {
+        console.warn('Invalid cache data, clearing...');
+        localStorage.removeItem('announcements');
+      }
+    }
+  }
+
+  // Load announcements from API
+  function loadFromAPI() {
+    fetch('/api/get-announcement')
+      .then(res => res.json())
+      .then(data => {
+        renderAnnouncements(data);
+        localStorage.setItem('announcements', JSON.stringify(data)); // Update cache
+      })
+      .catch(err => console.error('Error loading announcements:', err));
+  }
 
   // Delete an announcement
   function deleteAnnouncement(id) {
@@ -48,7 +62,7 @@ function loadAnnouncements() {
         .then(res => res.json())
         .then(data => {
           if (data.success) {
-            loadAnnouncements();
+            loadFromAPI(); // Reload after delete
           } else {
             alert('Error deleting announcement');
           }
@@ -60,7 +74,6 @@ function loadAnnouncements() {
   // Submit announcement
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch('/api/submit-announcement', {
         method: 'POST',
@@ -74,7 +87,7 @@ function loadAnnouncements() {
         message.textContent = data.message;
         message.style.color = 'green';
         input.value = '';
-        loadAnnouncements(); // Refresh after submit
+        loadFromAPI(); // Refresh list
       } else {
         message.textContent = 'Failed to save announcement';
         message.style.color = 'red';
@@ -86,6 +99,7 @@ function loadAnnouncements() {
     }
   });
 
-  // Initial load
-  loadAnnouncements();
+  // Initial load — show cache instantly, then fetch new data
+  loadFromCache();
+  loadFromAPI();
 });
