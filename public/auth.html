@@ -9,7 +9,7 @@
    <link rel="icon" type="image/png" href="images/GHSS.jpg">
 </head>
 <body>
-
+ <div id="google_translate_element" style="display:none;"></div>
   <header id="navbar">
        <a href="index.html" class="home"><h1>GHSS KADAYIRUPPU</h1></a>
     <nav>
@@ -48,6 +48,46 @@
   <footer>
     &copy;2025 SNGCE CSE Department. All rights reserved.
   </footer>
+  <button onclick="translateToMalayalam()" id="translateButton"  >
+  മലയാളം
+</button>
+
+<!-- Google Translate Widget (Hidden) -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<!-- Google Translate Script -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ml',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  function translateToMalayalam() {
+    const tryTranslate = () => {
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = 'ml'; // Malayalam
+        select.dispatchEvent(new Event('change'));
+        return true;
+      }
+      return false;
+    };
+
+    let attempts = 0;
+    const maxAttempts = 10;
+    const interval = setInterval(() => {
+      attempts++;
+      if (tryTranslate() || attempts > maxAttempts) {
+        clearInterval(interval);
+      }
+    }, 300);
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="script/right-tab-announcements.js"></script>
 <script src="script/main.js"></script>
 </body>
 </html>
